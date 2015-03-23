@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>彙整：2014/2 | It&#39;s just works!</title>
+  <meta name="author" content="EijiHsu">
+
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner">
+
+<header id="archive-header">
+  <h1 class="alignleft">彙整：2014/2</h1>
+  <div class="search alignright">
+    <form action="http://google.com/search" method="get" accept-charset="utf-8">
+      <input type="search" name="q" results="0" placeholder="搜尋">
+      <input type="hidden" name="q" value="site:apolkingg8.github.io">
+    </form>
+  </div>
+</header>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/02/10/note-flex-with-less/">[筆記] Flex with LESS</a></h1>
+  
+
+    <time datetime="2014-02-10T07:42:00.000Z">
+  <span class="day">10</span><span class="month">2月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/02/04/note-of-semantic-html/">[筆記] HTML5 Semantic Elements</a></h1>
+  
+
+    <time datetime="2014-02-03T23:59:00.000Z">
+  <span class="day">4</span><span class="month">2月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p><img src="http://html5doctor.com/downloads/h5d-sectioning-flowchart.png"></p>
+<p>其實舊的HTML4.01中也有一些元素是具有語意性的，例如<code>&lt;form&gt;</code>、<code>&lt;table&gt;</code>、<code>&lt;img&gt;</code>，而在HTML5中，新增了更多的常用語意性元素，用來取代以往由各種<code>&lt;div&gt;</code>切成的區塊，例如<code>&lt;head&gt;</code>、<code>&lt;footer&gt;</code>等等。下面整理一些常用的HTML5語意性元素。</p>
+<h3 id="\">\<header></header></h3>
+<p>用來表示區塊標題的區塊元素，這個區塊可以是一整個頁面、一個段落或一篇文章，可以把它當成一個放置介紹內容的容器。一個頁面中可以有多個header。\<header>是一容器沒錯，但是它裡面裝的東西應該只有區塊的標題或者摘要。不要把\<header>當成\<div class="header">來使用。另外，\<header>也不能放在\<footer>、\<address>或另一個\<header>裡面。</header></address></footer></header></div></header></header></p>
+<h3 id="\-1">\<nav></nav></h3>
+<p>導覽列。裡面裝的東西應該只有主要的navigation links，不要把各種link都丟到\<nav>裡面。舉例來說，footer裡面常常會有一排link，那個就不需要包進\<nav>。</nav></nav></p>
+<h3 id="\-1">\<section></section></h3>
+<p>文件中的一個專題群組或區塊。一般來說，裡面都會包含heading。如果這個區塊的內容可以分成幾個部分的話，那應該使用article。</p>
+<blockquote>
+<p>Examples of sections would be chapters, the various tabbed pages in a tabbed dialog box, or the numbered sections of a thesis. A Web site’s home page could be split into sections for an introduction, news items, and contact information.</p>
+</blockquote>
+<p>使用section的地方像是文章中的章節，一個標籤式對話框中的各個標籤頁面，或論文的編號部分。一個網站的主業通常可以分成幾個section，像是introduction，news items還有contact information。</p>
+<blockquote>
+<p>Do not use the \<section> element as a generic container; this is what \<div> is for, especially when the sectioning is only for styling purposes.</div></section></p>
+</blockquote>
+<p>不要把section當成div用，這大概是最常見的錯誤用法。section內裝的應該是有意義且附帶標題的一段內容。例如這樣：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">section</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Heading<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Bunch of awesome content<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">section</span>&gt;</span></div></pre></td></tr></table></figure>
+
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/02/03/note-webclient-side-separation-of-concerns/">[閒聊] WebClient端的關注點分離</a></h1>
+  
+
+    <time datetime="2014-02-03T02:55:00.000Z">
+  <span class="day">3</span><span class="month">2月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>內容出自<a href="http://shop.oreilly.com/product/9780596806767.do" target="_blank" rel="external">Javascript:patterns</a>第八章</p>
+<p>web的client端可以分成三個主要的關注點，分別是：</p>
+<ul>
+<li>Content(內容，HTML文件)</li>
+<li>Presentation(表現，CSS樣式)</li>
+<li>Behavior(行為，包含使用者互動及對文件的動態改變，通常使用Javascript)</li>
+</ul>
+<p>在做client端的規畫時，應該盡可能地保持關注點分離，有助於提升程式的品質及可維護性。 <strong>關注點分離</strong> 同樣可以和 <strong>漸進式增強</strong> 的觀念相輔相成：使用者從最基礎的內容（HTML）開始，隨著支援功能的增強而獲得更好的體驗（CSS, Javascript）。在實際應用中如下：</p>
+<ul>
+<li>將CSS關閉，確認網頁內容是否可以使用﹑內文是否可以閱讀</li>
+<li>將Javascript關閉，確保網頁主要功能還是可以正常運作，所有的連結都可以使用（所以不要用<code>href=&quot;#&quot;</code>），所有的表單都可以正常的提交。</li>
+<li>不要使用內嵌的事件處理器（例如<code>onclick</code>），或是內嵌的style屬性，因為這些東西不屬於內容層</li>
+<li>撰寫語意化的HTML</li>
+</ul>
+<p>Javascript的風格應為 <strong>unobtrusive</strong> ，意思是不應該擋到使用者的路，如果遇到不支援的瀏覽器也不應該讓頁面無法使用。另外，在處理瀏覽器差異時，應該用功能檢測取代瀏覽器偵測。</p>
+<h2 id="一點小感想">一點小感想</h2>
+<hr>
+<p>會寫這篇文章，是因為對書中有些地方有些不同的想法。我同意漸進式增強的觀念，同時也贊同關注點分離帶來的程式品質與可維護性，但是在有些狀況下，完美的關注點分離可能會降低使用者的最高體驗。例如SPA Web，在大量使用ajax的狀況下很難達到＂移除javascript仍然保持網站正常運作＂的條件，但是有必要為了這些極少數不支援javascript的使用者（無障礙網頁另當別論），去放棄大部分使用者的體驗嗎？記得之前看過某篇文章（原諒我找不到他），作者的觀點是＂ <strong>給那些使用者一些提示，並引導他們前進</strong> ＂，我想這個做法不論是對於使用者或是生產者而言都是好的。</p>
+<blockquote>
+<p>雖然<a href="http://arstechnica.com/information-technology/2013/10/internet-explorer-6-usage-drops-below-5-percent-in-september/" target="_blank" rel="external">IE6,7使用者比例終於下跌了</a>，但是廣大中國網民的IE6比率依舊讓人絕望阿…</p>
+</blockquote>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/02/03/experience-image-beacon/">[筆記] Javascript Image Beacon</a></h1>
+  
+
+    <time datetime="2014-02-03T02:22:00.000Z">
+  <span class="day">3</span><span class="month">2月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>在javascript中，要對Server發出GET請求，除了慣用的ajax之外還有另外一個方法，叫做Image Beacon。方法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> beacon = <span class="keyword">new</span> Image(),</div><div class="line">    url = <span class="string">'/record.asp?'</span>,</div><div class="line">    params = [</div><div class="line">    	<span class="string">'name=John'</span>, <span class="string">'age=18'</span></div><div class="line">    ];</div><div class="line">beacon.scr = url + params.join(<span class="string">'&'</span>);</div></pre></td></tr></table></figure>
+
+<p>利用<code>Image</code>物件的<code>src</code>屬性來對伺服器發出GET請求，上面的範例對<code>/record.asp</code>發出了一個GET請求，並帶入參數<code>name</code>跟<code>age</code>。這個Image物件並不需要被Render到頁面中。</p>
+<p>Image Beacon跟ajax的差別在於：</p>
+<ul>
+<li>可跨域</li>
+<li>效能比XHR來的好</li>
+<li>只能使用GET，所以有長度限制</li>
+</ul>
+<p>這種方法常被用於 <strong>只需要向Server發送數據</strong> 的場合，例如蒐集統計數據。在這種情況下，Server可以回傳一個<code>204 No Content</code>的header，代表有收到這份訊息，避免客戶端持續等待。</p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+
+  <nav id="pagenavi">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2015 EijiHsu
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>

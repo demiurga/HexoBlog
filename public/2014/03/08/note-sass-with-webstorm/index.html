@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[筆記] WebStorm中Sass File Watcher的一顆小地雷 | It&#39;s just works!</title>
+  <meta name="author" content="EijiHsu">
+
+  
+  <meta name="description" content="當我們在寫Sass的時候，把它拆成各個區塊方便管理是一件很正常的事，像這樣：
+12partial.sassmain.sass
+
+然後，因為partial.sass不需要被compiler成partial.css，所以檔名前面會加上加上_，變成_partial.sass。到目前為止一切都很合理。
+12">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title">[筆記] WebStorm中Sass File Watcher的一顆小地雷</h1>
+  
+
+    <time datetime="2014-03-08T04:37:00.000Z">
+  <span class="day">8</span><span class="month">3月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>當我們在寫Sass的時候，把它拆成各個區塊方便管理是一件很正常的事，像這樣：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">partial</span>.sass</div><div class="line">main.sass</div></pre></td></tr></table></figure>
+
+<p>然後，因為partial.sass不需要被compiler成partial.css，所以檔名前面會加上加上<code>_</code>，變成_partial.sass。到目前為止一切都很合理。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">_partial.sass</div><div class="line">main.sass</div></pre></td></tr></table></figure>
+
+<p>接下來在main.sass中引入這個partial，看起來沒什麼問題，不過接下來就是地雷了</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">import</span> partial</span></div><div class="line"></div><div class="line">// main.sass</div></pre></td></tr></table></figure>
+
+<p>通常，我們會希望在更改_partial中的內容後，重新編譯引入他的檔案，也就是main.sass。爬過stackoverflow之後，可以知道WebStorm提供了一個選項給你，叫做”track only root files”，取消的話她就會連帶編譯跟這個檔有關的所有檔案，很貼心對吧？</p>
+<p>…才怪，當你實際測試之後會發現，更改_partial.sass的內容後，並沒有編譯出新的main.css，要把import的檔名改一下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">import</span> _partial</span></div><div class="line"></div><div class="line">// main.sass</div></pre></td></tr></table></figure>
+
+<p>這樣子，_partial.sass的內容被更改的時候，就會一併編譯main.sass了。不過問題還沒結束，仔細看資料夾，你會發現多了一個_partial.css…沒錯，他連<code>_</code>開頭的檔案也編譯了。</p>
+<p>正確的解法應該是， <strong>要勾選track only root files，然後import的檔名必須加上<code>_</code></strong>，這樣就能正確的編譯且不產生多餘的檔案了。</p>
+<blockquote>
+<p>…馬德，stackoverflow誤我半天…</p>
+</blockquote>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article></div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2015 EijiHsu
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>

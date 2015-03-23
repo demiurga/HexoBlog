@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[筆記] CSS Media Query | It&#39;s just works!</title>
+  <meta name="author" content="EijiHsu">
+
+  
+  <meta name="description" content="最近在做RWD的練習，赫然發現自己的CSS有點弱阿…長久以來都習慣把一些東西交給javascript處理，是時候該打好CSS的根底了。（以上題外話）下面大概筆記一下關於Media Query的部分。
+使用方式
+
+有三種使用方式，第一種是在&amp;lt;link&amp;gt;Tag中將條件加入：
+123&amp;lt;link rel=&quot;stylesheet&quot; media=&quot;screen and (min-width: 450px) and (max-width: 950px)&quot; href=&quot;style1.css&quot; /&amp;gt;&amp;lt;link rel=&quot;stylesheet&quot; media=&quot;screen and (min-width: 950px)&quot; href=&quot;style2.css&quot; /&amp;gt;&amp;lt;!-- 當螢幕寬度大於450小於950的時候引入style1，大於950的時候引入style2 --&amp;gt;
+
+
+&amp;lt;link&amp;gt;標籤中的media屬性是從html4就有的，只不過那時指定的只有media type，並不支援media query，同樣的，media type在css2中也可以使用。
+
+第二種是在CSS中的@import中加入條件：
+12@import url(color.css) screen and (color);// 在彩色顯示下引入color.css
+
+
+雖然我把他列出來，但請不要使用css的@import，他並不是標準的一部分，而且會拖慢網頁的效能。這點在High Performance Web Sites中有提到，可以參考這篇文章。
+
+第三種是在css selector中加入條件：
+123@media all and (min-width:500px) { … }@media (min-width:500px) { … }// 這兩者是一樣的">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title">[筆記] CSS Media Query</h1>
+  
+
+    <time datetime="2014-01-22T21:29:00.000Z">
+  <span class="day">23</span><span class="month">1月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>最近在做RWD的練習，赫然發現自己的CSS有點弱阿…長久以來都習慣把一些東西交給javascript處理，是時候該打好CSS的根底了。（以上題外話）下面大概筆記一下關於Media Query的部分。</p>
+<h2 id="使用方式">使用方式</h2>
+<hr>
+<p>有三種使用方式，第一種是在<code>&lt;link&gt;</code>Tag中將條件加入：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen and (min-width: 450px) and (max-width: 950px)"</span> <span class="attribute">href</span>=<span class="value">"style1.css"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen and (min-width: 950px)"</span> <span class="attribute">href</span>=<span class="value">"style2.css"</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- 當螢幕寬度大於450小於950的時候引入style1，大於950的時候引入style2 --&gt;</span></div></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>&lt;link&gt;</code>標籤中的<code>media</code>屬性是從html4就有的，只不過那時指定的只有media type，並不支援media query，同樣的，media type在css2中也可以使用。</p>
+</blockquote>
+<p>第二種是在CSS中的<code>@import</code>中加入條件：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@import url(color.css) screen and (color);</div><div class="line">// 在彩色顯示下引入color.css</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>雖然我把他列出來，但請不要使用css的<code>@import</code>，他並不是標準的一部分，而且會拖慢網頁的效能。這點在<a href="http://www.amazon.com/dp/0596529309?tag=stevsoud-20&amp;camp=14573&amp;creative=327641&amp;linkCode=as1&amp;creativeASIN=0596529309&amp;adid=1S1KP4EV129EN37422C0&amp;" target="_blank" rel="external">High Performance Web Sites</a>中有提到，可以參考<a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/" target="_blank" rel="external">這篇文章</a>。</p>
+</blockquote>
+<p>第三種是在css selector中加入條件：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@media all and (min-width:500px) { … }</div><div class="line">@media (min-width:500px) { … }</div><div class="line">// 這兩者是一樣的</div></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<h2 id="運算子">運算子</h2>
+<hr>
+<h3 id="and">and</h3>
+<p>…就是and，既不偉大也不卑微的and</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> tv and (min-width: <span class="number">700px</span>) and (orientation: landscape) </span>{ ... }</div></pre></td></tr></table></figure>
+
+<h3 id="逗號">逗號</h3>
+<p>作用等同於<code>or</code>，符合其中一個條件的都會套上style</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> (min-width: <span class="number">700px</span>), handheld and (orientation: landscape) </span>{ ... }</div></pre></td></tr></table></figure>
+
+<h3 id="not">not</h3>
+<p>下面三者的意義是一樣的</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> not all and (monochrome) </span>{ ... }</div><div class="line"><span class="at_rule">@<span class="keyword">media</span> not (all and (monochrome)) </span>{ ... }</div><div class="line"><span class="at_rule">@<span class="keyword">media</span> (not all) and (monochrome) </span>{ ... }</div></pre></td></tr></table></figure>
+
+<p><code>not</code>並不會影響到逗號之外的判斷式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> not screen and (color), print and (color)</span></div><div class="line">@media (not (screen and (color))), print and (color)</div><div class="line">// 上面兩個是一樣的</div></pre></td></tr></table></figure>
+
+<h3 id="only">only</h3>
+<p><code>only</code>會對於不支援media query的browser隱藏這份style，支援的劉覽器則會忽略這個字</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"only screen and (color)"</span> <span class="attribute">href</span>=<span class="value">"example.css"</span> /&gt;</span></div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>應該說，不支援Media Querie但正確讀取media type的瀏覽器，會因為media type不是”only”（可能是screen之類的），所以忽略這份樣式。如果browser不支援media type，不管怎樣都會忽略這份style。（如果我沒搞錯的話，連media type都不支援的應該是IE5之前的東西，大概是要用13張3.5吋磁片灌大富翁四的年代…）</p>
+</blockquote>
+<h2 id="features">features</h2>
+<hr>
+<p>請參閱<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries" target="_blank" rel="external">MDN</a>。</p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article></div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2015 EijiHsu
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>

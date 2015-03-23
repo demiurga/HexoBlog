@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[心得] Debug Cordova app with Android 4.4 and Chrome | It&#39;s just works!</title>
+  <meta name="author" content="EijiHsu">
+
+  
+  <meta name="description" content="在Android 4.4，有新的方式可以用Chrome debug Android 上面的 WebView方法超簡單（以下以cordova app當範例）：
+
+確定你有Chrome 30+, Android 4.4, 還有一個嗷嗷待哺的cordova app
+用USB把他們連起來，選項該的開該打勾的">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title">[心得] Debug Cordova app with Android 4.4 and Chrome</h1>
+  
+
+    <time datetime="2014-05-28T19:43:00.000Z">
+  <span class="day">29</span><span class="month">5月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>在Android 4.4，有新的方式可以用Chrome debug Android 上面的 WebView<br>方法超簡單（以下以cordova app當範例）：</p>
+<ol>
+<li>確定你有Chrome 30+, Android 4.4, 還有一個嗷嗷待哺的cordova app</li>
+<li>用USB把他們連起來，選項該的開該打勾的打勾，就跟平常一樣</li>
+<li>在你的cordova app的<code>onDeviceReady</code>事件加上這段<pre><code> <span class="keyword">if</span>(Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {
+     <span class="keyword">if</span> ( <span class="number">0</span> != ( getApplcationInfo().flags &amp;= ApplicationInfo.FLAG_DEBUGGABLE ) ) {
+         WebView.setWebContentsDebuggingEnabled(<span class="literal">true</span>);
+     }
+ }
+</code></pre></li>
+<li>切到chrome的<code>chrome://inspect/#devices</code>頁面</li>
+<li>勾選Discover USB Devices，應該會看到你的安拙在上面，接著開啟你的cordova app</li>
+<li>現在應該會列出你的app開啟的WebView(通常只有一個)，點下inspect，熟悉的ChromeDevTool就出現了！</li>
+</ol>
+<p>感覺就跟Safari的web inspecter一樣</p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article></div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2015 EijiHsu
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>

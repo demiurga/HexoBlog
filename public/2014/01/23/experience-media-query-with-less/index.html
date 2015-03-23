@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[筆記] Media query with LESS | It&#39;s just works!</title>
+  <meta name="author" content="EijiHsu">
+
+  
+  <meta name="description" content="在LESS中，對於Media Query有些更方便的寫法，下面舉一些例子：
+嵌套
+
+可以直接把@media當成selector寫，例如：
+12345678.one {    @media (width: 400px) {        font-size: 1.2em;        @media print and color {            color: blue;        }    }}
+
+會被編譯成
+12345678910@media (width: 400px) {  .one {    font-size: 1.2em;  }}@media (width: 400px) and print and color {  .one {    color: blue;  }}">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title">[筆記] Media query with LESS</h1>
+  
+
+    <time datetime="2014-01-22T23:08:00.000Z">
+  <span class="day">23</span><span class="month">1月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>在LESS中，對於Media Query有些更方便的寫法，下面舉一些例子：</p>
+<h2 id="嵌套">嵌套</h2>
+<hr>
+<p>可以直接把<code>@media</code>當成selector寫，例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.one {</div><div class="line">    @media (width: 400px) {</div><div class="line">        font-size: 1.2em;</div><div class="line">        @media print and color {</div><div class="line">            color: blue;</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>會被編譯成</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> (width: <span class="number">400px</span>) </span>{</div><div class="line">  <span class="class">.one</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">1.2em</span></span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">}</div><div class="line"><span class="at_rule">@<span class="keyword">media</span> (width: <span class="number">400px</span>) and print and color </span>{</div><div class="line">  <span class="class">.one</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> blue</span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<h2 id="變數化">變數化</h2>
+<hr>
+<p>在1.4.0之後的版本，開啟嚴格模式的情況下，可以在Media Query中插入變數：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> screen, (max-width: @width) </span>{ ... }</div></pre></td></tr></table></figure>
+
+<p>你也可以把media query變數化，例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">singleQuery:</span> ~<span class="string">"(max-width: 500px)"</span></span>;</div><div class="line"><span class="at_rule">@<span class="keyword">media</span> screen, @singleQuery </span>{</div><div class="line">    <span class="tag">set</span> <span class="rules">{</span></div><div class="line">        <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span></span></span>;</div><div class="line">    <span class="rule">}</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>會被編譯成</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> screen, (max-width: <span class="number">500px</span>) </span>{</div><div class="line">    <span class="tag">set</span> <span class="rules">{</span></div><div class="line">        <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span></span></span>;</div><div class="line">    <span class="rule">}</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>變數必須是一段完整的media query，像這樣會出錯：<code>@media screen and @partial { ... }</code></p>
+</blockquote>
+<p>變數化的Media Query中也可以插進變數：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">phoneValueMax:</span> ( <span class="number">599</span> / @bfs ) + <span class="number">0em</span></span>;</div><div class="line"><span class="at_rule">@<span class="keyword">phone:</span> ~<span class="string">"screen and (max-width: @{phoneValueMax} )"</span></span>;</div></pre></td></tr></table></figure>
+
+<h2 id="Mixin">Mixin</h2>
+<hr>
+<p>也可以把它編成Mixin：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">highdensity:</span> ~<span class="string">"only screen and (-webkit-min-device-pixel-ratio: 1.5)"</span>,</span></div><div class="line">              ~<span class="string">"only screen and (min--moz-device-pixel-ratio: 1.5)"</span>,</div><div class="line">              ~<span class="string">"only screen and (-o-min-device-pixel-ratio: 3/2)"</span>,</div><div class="line">              ~<span class="string">"only screen and (min-device-pixel-ratio: 1.5)"</span>;</div></pre></td></tr></table></figure>
+
+<h2 id="參考">參考</h2>
+<hr>
+<p><a href="http://www.lesscss.org/" target="_blank" rel="external">LESS</a><br><a href="http://blog.scur.pl/2012/06/variable-media-queries-less-css/" target="_blank" rel="external">Variable media queries in Less CSS</a></p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article></div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2015 EijiHsu
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>

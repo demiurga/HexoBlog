@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[筆記] 在WebStorm中新增compass的語法提示 | It&#39;s just works!</title>
+  <meta name="author" content="EijiHsu">
+
+  
+  <meta name="description" content="在WebStorm中，compass是沒有內建代碼提示的，而且所有的compass mixin都會被標示為undefined mixin（雖然不影響compiler），連@import compass底下都會爬一條紅蚯蚓，跟你說他找不到compass.sass這個檔案。目前看到最好的解法是手動新增符">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title">[筆記] 在WebStorm中新增compass的語法提示</h1>
+  
+
+    <time datetime="2014-03-08T06:31:00.000Z">
+  <span class="day">8</span><span class="month">3月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>在WebStorm中，compass是沒有內建代碼提示的，而且所有的compass mixin都會被標示為undefined mixin（雖然不影響compiler），連<code>@import compass</code>底下都會爬一條紅蚯蚓，跟你說他找不到compass.sass這個檔案。目前看到最好的解法是手動新增符號連結。</p>
+<p>先切到專案中的sass目錄裡</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> projectlocate/sass</div></pre></td></tr></table></figure>
+
+<p>新增一個compass的符號連結</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mklink</span> /d compass <span class="variable">$COMPASS_LOCATE</span></div></pre></td></tr></table></figure>
+
+<p>$COMPASS_LOCATE`是裝在ruby gem底下的compass stylesheet位置，舉例來說我的長這樣：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">H:<span class="command">\Units</span><span class="command">\Ruby</span>193<span class="command">\lib</span><span class="command">\ruby</span><span class="command">\gems</span>\1.9.1<span class="command">\gems</span><span class="command">\compass</span>-0.12.3<span class="command">\frameworks</span><span class="command">\compass</span><span class="command">\stylesheets</span><span class="command">\compass</span></div></pre></td></tr></table></figure>
+
+<p>然後就可以得到compass的代碼提示了，這作法就類似把新增compass到你的libary裡面，只是沒有實際引入檔案。</p>
+<p>如果要移除這個符號連結， <strong>不要直接刪除</strong>，要用下面這行指令：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">rmdir</span> compass</div></pre></td></tr></table></figure>
+
+<p>至於mac或linux中，Symbolic Link的指令是這樣：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">ln -s &lt;dest&gt;</span> &lt;link&gt;</span></div><div class="line">rm &lt;dest&gt;</div></pre></td></tr></table></figure>
+
+<p>例如我的是/Library/Ruby/Gems/2.0.0/gems/compass-0.12.3/frameworks/compass/stylesheets/compass</p>
+<blockquote>
+<p>我說大哥阿，你既然都bundle compass進去了，為什麼不搞得徹底一點呢….</p>
+</blockquote>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article></div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2015 EijiHsu
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[筆記] HTML5 Semantic Elements | It&#39;s just works!</title>
+  <meta name="author" content="EijiHsu">
+
+  
+  <meta name="description" content="其實舊的HTML4.01中也有一些元素是具有語意性的，例如&amp;lt;form&amp;gt;、&amp;lt;table&amp;gt;、&amp;lt;img&amp;gt;，而在HTML5中，新增了更多的常用語意性元素，用來取代以往由各種&amp;lt;div&amp;gt;切成的區塊，例如&amp;lt;head&amp;gt;、&amp;lt;footer&amp;gt;等等。下面整理一些常用的HTML5語意性元素。
+\
+用來表示區塊標題的區塊元素，這個區塊可以是一整個頁面、一個段落或一篇文章，可以把它當成一個放置介紹內容的容器。一個頁面中可以有多個header。\是一容器沒錯，但是它裡面裝的東西應該只有區塊的標題或者摘要。不要把\當成\來使用。另外，\也不能放在\、\或另一個\裡面。
+\
+導覽列。裡面裝的東西應該只有主要的navigation links，不要把各種link都丟到\裡面。舉例來說，footer裡面常常會有一排link，那個就不需要包進\。
+\
+文件中的一個專題群組或區塊。一般來說，裡面都會包含heading。如果這個區塊的內容可以分成幾個部分的話，那應該使用article。
+
+Examples of sections would be chapters, the various tabbed pages in a tabbed dialog box, or the numbered sections of a thesis. A Web site’s home page could be split into sections for an introduction, news items, and contact information.
+
+使用section的地方像是文章中的章節，一個標籤式對話框中的各個標籤頁面，或論文的編號部分。一個網站的主業通常可以分成幾個section，像是introduction，news items還有contact information。
+
+Do not use the \ element as a generic container; this is what \ is for, especially when the sectioning is only for styling purposes.
+
+不要把section當成div用，這大概是最常見的錯誤用法。section內裝的應該是有意義且附帶標題的一段內容。例如這樣：
+1234&amp;lt;section&amp;gt;  &amp;lt;h1&amp;gt;Heading&amp;lt;/h1&amp;gt;  &amp;lt;p&amp;gt;Bunch of awesome content&amp;lt;/p&amp;gt;&amp;lt;/section&amp;gt;">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title">[筆記] HTML5 Semantic Elements</h1>
+  
+
+    <time datetime="2014-02-03T23:59:00.000Z">
+  <span class="day">4</span><span class="month">2月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p><img src="http://html5doctor.com/downloads/h5d-sectioning-flowchart.png"></p>
+<p>其實舊的HTML4.01中也有一些元素是具有語意性的，例如<code>&lt;form&gt;</code>、<code>&lt;table&gt;</code>、<code>&lt;img&gt;</code>，而在HTML5中，新增了更多的常用語意性元素，用來取代以往由各種<code>&lt;div&gt;</code>切成的區塊，例如<code>&lt;head&gt;</code>、<code>&lt;footer&gt;</code>等等。下面整理一些常用的HTML5語意性元素。</p>
+<h3 id="\">\<header></header></h3>
+<p>用來表示區塊標題的區塊元素，這個區塊可以是一整個頁面、一個段落或一篇文章，可以把它當成一個放置介紹內容的容器。一個頁面中可以有多個header。\<header>是一容器沒錯，但是它裡面裝的東西應該只有區塊的標題或者摘要。不要把\<header>當成\<div class="header">來使用。另外，\<header>也不能放在\<footer>、\<address>或另一個\<header>裡面。</header></address></footer></header></div></header></header></p>
+<h3 id="\-1">\<nav></nav></h3>
+<p>導覽列。裡面裝的東西應該只有主要的navigation links，不要把各種link都丟到\<nav>裡面。舉例來說，footer裡面常常會有一排link，那個就不需要包進\<nav>。</nav></nav></p>
+<h3 id="\-1">\<section></section></h3>
+<p>文件中的一個專題群組或區塊。一般來說，裡面都會包含heading。如果這個區塊的內容可以分成幾個部分的話，那應該使用article。</p>
+<blockquote>
+<p>Examples of sections would be chapters, the various tabbed pages in a tabbed dialog box, or the numbered sections of a thesis. A Web site’s home page could be split into sections for an introduction, news items, and contact information.</p>
+</blockquote>
+<p>使用section的地方像是文章中的章節，一個標籤式對話框中的各個標籤頁面，或論文的編號部分。一個網站的主業通常可以分成幾個section，像是introduction，news items還有contact information。</p>
+<blockquote>
+<p>Do not use the \<section> element as a generic container; this is what \<div> is for, especially when the sectioning is only for styling purposes.</div></section></p>
+</blockquote>
+<p>不要把section當成div用，這大概是最常見的錯誤用法。section內裝的應該是有意義且附帶標題的一段內容。例如這樣：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">section</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Heading<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Bunch of awesome content<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">section</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<h3 id="\-1">\<article></article></h3>
+<p>一個獨立的區塊，同樣必須帶有heading。舉例來說，像這篇文章本身就是一個article，下面每個回應也都是一個單獨的article。<br>article跟section的區分是，article有更高的獨立性及完整性。MDN裡面是這樣說明的：</p>
+<blockquote>
+<p>“The HTML \<article> Element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable, e.g., in syndication.”</article></p>
+</blockquote>
+<p>article本身就算脫離了整體也是一個可以獨立存在、具有完整內容的區塊，例如這篇文章；而section雖然也具有獨立表達內容的能力，但是對外層有一定的相依性，例如這篇文章中的一個章節。</p>
+<h3 id="\-1">\<aside></aside></h3>
+<p>aside元素代表從內容分離的部分。這些部分通常被表示為sidebar或interns。他們通常包含side explanations，像是術語定義；也可以放較為鬆散相關的東西，像廣告、的作者的傳記、個人資料信息或相關連結。像w3school舉的這個例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>My family and I visited The Epcot center this summer.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="title">aside</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">h4</span>&gt;</span>Epcot Center<span class="tag">&lt;/<span class="title">h4</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>The Epcot Center is a theme park in Disney World, Florida.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">aside</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>另外，不要用aside標記括弧內的文字，這通常被認為是主要內容的一部分。</p>
+<h3 id="\-1">\<footer></footer></h3>
+<p>footer代表一個區塊的結尾訊息，這個區塊是離他最近的父 \<article>, \<aside>, \<nav>, \<section>, \<blockquote>, \<body>, \<details>, \<fieldset>, \<figure>, \<td>。footer內通常會包含作者、版權等資訊。footer元素不是父區塊的內容之一，所以並不會出現在outline中。在address元素中的作者資訊也可以放在footer裡面。</td></figure></fieldset></details></body></blockquote></section></nav></aside></article></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">footer</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Posted by: Hege Refsnes<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Contact information: <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"mailto:someone@example.com"</span>&gt;</span></div><div class="line">  someone@example.com<span class="tag">&lt;/<span class="title">a</span>&gt;</span>.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">footer</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h3 id="\-1">\<figure></figure></h3>
+<p>這也是一個常被誤用的標籤，頻率大概僅次於section。先看看它的定義：</p>
+<blockquote>
+<p>The figure element represents a unit of content, optionally with a caption, that is self-contained, that is typically referenced as a single unit from the main flow of the document, and that can be moved away from the main flow of the document without affecting the document’s meaning.</p>
+</blockquote>
+<p>簡單來說，figure是一個有完整內容的區塊，他是主要內容的一部分，而且可以任意移動位置而不影響整體內容的表達。常見的問題是把每個img都包上figure，這完全沒有意義。簡單的判斷方式是想想看＂我把這個figure拿掉會不會影響到上下文的閱讀？＂，如果會的話，他就絕對不該是一個figure。<br>figure絕對不是只拿來包圖片的，他可以包含影音檔、圖表（可能是canvas或是svg）或是一段code。他跟aside的差別在於：</p>
+<ul>
+<li>aside和主內容有關，但不是主內容的一部分</li>
+<li>figure是主內容的一部分，但是他可以任意移動或刪除而不影響主內容的表達。</li>
+</ul>
+<p>通常figure會搭配\<figcaption>服用，他放在第一個或最後一個子元素，像這樣：</figcaption></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">figure</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"/macaque.jpg"</span> <span class="attribute">alt</span>=<span class="value">"Macaque in the trees"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">figcaption</span>&gt;</span>A cheeky macaque, Lower Kintaganban River, Borneo. Original by <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.flickr.com/photos/rclark/"</span>&gt;</span>Richard Clark<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">figcaption</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">figure</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>範例可以參考<a href="http://html5doctor.com/the-figure-figcaption-elements/" target="_blank" rel="external">HTML5 Doctor</a></p>
+<h2 id="其他">其他</h2>
+<hr>
+<ul>
+<li>IE8以下不支援HTML5，可以用<a href="https://code.google.com/p/html5shiv/" target="_blank" rel="external">HTML5shiv</a>來補足。</li>
+<li>如果沒有十足的把握，可以先用一般的寫法完成頁面，然後再去做語意化的動作。不當的語意化對SEO來說是個悲劇。</li>
+<li>XDite大大在<a href="http://wp.xdite.net/?p=3071" target="_blank" rel="external">如何設計出正確語意的 HTML5</a>有提到＂不要對任何語意TAG下style，否則當需要調整語意結構時，會天下大亂＂，可能是我太菜，不知道為什麼會這樣說，也找不到相關的文章。如果每個semantic tag外面都包個div，這樣的code會比較好嗎？</li>
+</ul>
+<h2 id="參考">參考</h2>
+<hr>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" rel="external">MDN</a><br><a href="http://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank" rel="external">W3School</a><br><a href="http://html5doctor.com/" target="_blank" rel="external">HTML5Doctor</a><br><a href="http://wp.xdite.net/?p=3071" target="_blank" rel="external">Blog.XDite.net:如何設計出正確語意的 HTML5</a><br><a href="http://waterlily-lsl.com/modules/article/view.article.php/c1/258" target="_blank" rel="external">避免常見的六種 HTML5 錯誤用法</a><br><a href="http://www.qianduan.net/html5-differences-in-the-div-section-article.html" target="_blank" rel="external">HTML5 中 div section article 的区别</a></p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article></div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2015 EijiHsu
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>

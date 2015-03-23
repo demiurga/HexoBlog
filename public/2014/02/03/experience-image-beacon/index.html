@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[筆記] Javascript Image Beacon | It&#39;s just works!</title>
+  <meta name="author" content="EijiHsu">
+
+  
+  <meta name="description" content="在javascript中，要對Server發出GET請求，除了慣用的ajax之外還有另外一個方法，叫做Image Beacon。方法如下：
+123456var beacon = new Image(),    url = &#39;/record.asp?&#39;,    params = [    	&#39;name">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title">[筆記] Javascript Image Beacon</h1>
+  
+
+    <time datetime="2014-02-03T02:22:00.000Z">
+  <span class="day">3</span><span class="month">2月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>在javascript中，要對Server發出GET請求，除了慣用的ajax之外還有另外一個方法，叫做Image Beacon。方法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> beacon = <span class="keyword">new</span> Image(),</div><div class="line">    url = <span class="string">'/record.asp?'</span>,</div><div class="line">    params = [</div><div class="line">    	<span class="string">'name=John'</span>, <span class="string">'age=18'</span></div><div class="line">    ];</div><div class="line">beacon.scr = url + params.join(<span class="string">'&'</span>);</div></pre></td></tr></table></figure>
+
+<p>利用<code>Image</code>物件的<code>src</code>屬性來對伺服器發出GET請求，上面的範例對<code>/record.asp</code>發出了一個GET請求，並帶入參數<code>name</code>跟<code>age</code>。這個Image物件並不需要被Render到頁面中。</p>
+<p>Image Beacon跟ajax的差別在於：</p>
+<ul>
+<li>可跨域</li>
+<li>效能比XHR來的好</li>
+<li>只能使用GET，所以有長度限制</li>
+</ul>
+<p>這種方法常被用於 <strong>只需要向Server發送數據</strong> 的場合，例如蒐集統計數據。在這種情況下，Server可以回傳一個<code>204 No Content</code>的header，代表有收到這份訊息，避免客戶端持續等待。</p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article></div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2015 EijiHsu
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>

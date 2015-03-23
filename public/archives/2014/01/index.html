@@ -1,0 +1,534 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>彙整：2014/1 | It&#39;s just works!</title>
+  <meta name="author" content="EijiHsu">
+
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner">
+
+<header id="archive-header">
+  <h1 class="alignleft">彙整：2014/1</h1>
+  <div class="search alignright">
+    <form action="http://google.com/search" method="get" accept-charset="utf-8">
+      <input type="search" name="q" results="0" placeholder="搜尋">
+      <input type="hidden" name="q" value="site:apolkingg8.github.io">
+    </form>
+  </div>
+</header>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/01/23/experience-media-query-with-less/">[筆記] Media query with LESS</a></h1>
+  
+
+    <time datetime="2014-01-22T23:08:00.000Z">
+  <span class="day">23</span><span class="month">1月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>在LESS中，對於Media Query有些更方便的寫法，下面舉一些例子：</p>
+<h2 id="嵌套">嵌套</h2>
+<hr>
+<p>可以直接把<code>@media</code>當成selector寫，例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.one {</div><div class="line">    @media (width: 400px) {</div><div class="line">        font-size: 1.2em;</div><div class="line">        @media print and color {</div><div class="line">            color: blue;</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>會被編譯成</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> (width: <span class="number">400px</span>) </span>{</div><div class="line">  <span class="class">.one</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">1.2em</span></span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">}</div><div class="line"><span class="at_rule">@<span class="keyword">media</span> (width: <span class="number">400px</span>) and print and color </span>{</div><div class="line">  <span class="class">.one</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> blue</span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/01/23/note-css-media-query/">[筆記] CSS Media Query</a></h1>
+  
+
+    <time datetime="2014-01-22T21:29:00.000Z">
+  <span class="day">23</span><span class="month">1月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>最近在做RWD的練習，赫然發現自己的CSS有點弱阿…長久以來都習慣把一些東西交給javascript處理，是時候該打好CSS的根底了。（以上題外話）下面大概筆記一下關於Media Query的部分。</p>
+<h2 id="使用方式">使用方式</h2>
+<hr>
+<p>有三種使用方式，第一種是在<code>&lt;link&gt;</code>Tag中將條件加入：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen and (min-width: 450px) and (max-width: 950px)"</span> <span class="attribute">href</span>=<span class="value">"style1.css"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen and (min-width: 950px)"</span> <span class="attribute">href</span>=<span class="value">"style2.css"</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- 當螢幕寬度大於450小於950的時候引入style1，大於950的時候引入style2 --&gt;</span></div></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>&lt;link&gt;</code>標籤中的<code>media</code>屬性是從html4就有的，只不過那時指定的只有media type，並不支援media query，同樣的，media type在css2中也可以使用。</p>
+</blockquote>
+<p>第二種是在CSS中的<code>@import</code>中加入條件：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@import url(color.css) screen and (color);</div><div class="line">// 在彩色顯示下引入color.css</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>雖然我把他列出來，但請不要使用css的<code>@import</code>，他並不是標準的一部分，而且會拖慢網頁的效能。這點在<a href="http://www.amazon.com/dp/0596529309?tag=stevsoud-20&amp;camp=14573&amp;creative=327641&amp;linkCode=as1&amp;creativeASIN=0596529309&amp;adid=1S1KP4EV129EN37422C0&amp;" target="_blank" rel="external">High Performance Web Sites</a>中有提到，可以參考<a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/" target="_blank" rel="external">這篇文章</a>。</p>
+</blockquote>
+<p>第三種是在css selector中加入條件：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@media all and (min-width:500px) { … }</div><div class="line">@media (min-width:500px) { … }</div><div class="line">// 這兩者是一樣的</div></pre></td></tr></table></figure>
+
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/01/17/notes-on-loading-script/">[筆記] 關於載入Script</a></h1>
+  
+
+    <time datetime="2014-01-17T01:02:00.000Z">
+  <span class="day">17</span><span class="month">1月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>最近在看<a href="http://www.tenlong.com.tw/items/9862764198?item_id=427729" target="_blank" rel="external">Javascript Patterns</a>這本書，剛好這陣子有碰到比較大的js data，就把書中一些關於Script讀取策略的部分整理一下。</p>
+<h2 id="Script_Tag的屬性">Script Tag的屬性</h2>
+<hr>
+<p><code>language</code><br>這個屬性有各種不同大小寫的格式，像是：<code>JavaScript</code>, <code>javascript</code>, <code>Javascript</code>，有時候還附帶版本號。但其實根本就不應該用這個屬性，因為預設語言就是JavaScript，版本號也運作得不好。</p>
+<blockquote>
+<p>註：W3C已經不推薦使用這個屬性</p>
+</blockquote>
+<p><code>type</code><br>HTML4跟XHAML1標準會驗證這個屬性為必要，但其實不應該如此，因為預設就是JavaScript。HTML5已經將這個屬性改成非必要。</p>
+<p><code>defer</code><br>這段指定的Script會在頁面Render結束之後才運作，HTML5有更方便的<code>async</code>屬性。</p>
+<blockquote>
+<p>async跟defer的區別在於前者是在ParseDOM時載入Script並在載入完成後執行，後者則是在頁面載入結束後載入Script，並在載入完成後執行。一個小技巧是同時放上<code>async</code>跟<code>defer</code>，支援async的瀏覽器會忽略defer，不支援的則會使用defer。<br>關於<code>defer</code>這個屬性，其實各瀏覽器實作的方式不一樣，許多現代瀏覽器，例如Chrome，預設就是在頁面Render結束後才載入<code>&lt;head&gt;</code>中有<code>src</code>的<code>&lt;scripe&gt;</code>。<a href="http://mao.li/javascript/javascript-defer/" target="_blank" rel="external">這篇文章</a>有作一些測試。</p>
+</blockquote>
+<h2 id="放置Script_Tag的位置">放置Script Tag的位置</h2>
+<hr>
+<p><code>&lt;script&gt;</code>標籤會阻擋在他之後的事件，包括頁面render或下載，所以放置<code>&lt;Script&gt;</code>最好的位置是在<code>&lt;/body&gt;</code>之前，這樣可以防止頁面載入被Scrtpt標籤阻擋而拖延。最差的方式則是在<code>&lt;head&gt;</code>中引入多個獨立的檔案，會佔去server許多不必要的連線數。</p>
+<blockquote>
+<p>個人經驗，有沒有pack成單一檔案對伺服器負載能力真的差蠻多的</p>
+</blockquote>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/01/15/-number-of-kaohsiung-mrt-station/">[產出] 高雄捷運進站人數變化圖</a></h1>
+  
+
+    <time datetime="2014-01-15T06:37:00.000Z">
+  <span class="day">15</span><span class="month">1月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>Demo: <a href="http://apolkingg8.github.io/DemoPages/KRT_logMap/demo.html" target="_blank" rel="external">http://apolkingg8.github.io/DemoPages/KRT_logMap/demo.html</a></p>
+<p>前陣子之前在社團看到北捷的運量變化圖，心血來潮就想說來個高捷版，不過基於各種原因拖到現在才做好XD</p>
+<p>剛開始猶豫很久，要用SVG還是Canvas還是純CSS，最後因為相容性的關係而選擇了SVG，不過最後做跨瀏覽器測試的時候還是有點問題（Opera有時候會卡住，平平都是Blink阿）。因為跟SVG不熟，做到後來有種想打掉重做的衝動（例如包裝架構，互動方式，還有那個根本沒必要的Slider…），不過還是等有空再說吧，好多預計要看要玩的東西都還沒動呢（跪</p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/01/11/experiencejquery-widget-factory/">[心得] jQuery Widget Factory極簡教學</a></h1>
+  
+
+    <time datetime="2014-01-11T00:45:00.000Z">
+  <span class="day">11</span><span class="month">1月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <h2 id="簡介">簡介</h2>
+<p>jQuery Widget Factory是jQuery UI提供的一個方法，用Factory Mode來建立 <strong>有狀態的</strong> jQuery plugin。大多數的jQueryUI都是用這個方法產生的，例如<code>button</code>：</p>
+<figure class="highlight JS"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.widget( <span class="string">"ui.button"</span>, {</div><div class="line">	<span class="comment">// ...</span></div><div class="line">  });</div></pre></td></tr></table></figure>
+
+<p>不過也有些是例外，像<code>datepicker</code>就不是用這個方法產生的。</p>
+<h2 id="如何使用">如何使用</h2>
+<p>這個方法是基於jQuery，而不是jQuery UI Core，但是他的位置是在jQueryui.js裡面，所以兩者都必須引入</p>
+<blockquote>
+<p>註：如果不需要其他jQueryUI的話，可以只載入jquery.ui.widget.js</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"Libs/jquery-1.9.1.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"Libs/jquery-ui-1.10.3.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>方法的格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.widget(<span class="string">'namespace.uiName'</span>, [base], prototype)</div></pre></td></tr></table></figure>
+
+<p><code>namespace</code>只能有一層，像jQueryUI就是用<code>ui.button</code><br><code>[base]</code>可選，用來指定已存在的物件當作基底，預設值是<code>$.widget</code>。例如你想要以jqueryUI的<code>dialog</code>為基底產生一個新的plugin，就可以像這樣：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$.widget( <span class="string">"custom.superDialog"</span>, $.ui.dialog, {</div><div class="line">    red: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">this</span>.element.css( <span class="string">"color"</span>, <span class="string">"red"</span> );</div><div class="line">    }</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p><code>prototype</code>這個widget的prototype object，套件的方法及設定都在這裡實作。</p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/01/11/output-on-top-of-the-picture-message-jquery-plugin-commentonphoto/">[產出] 在圖片上留言的jQuery plugin - CommentOnPhoto</a></h1>
+  
+
+    <time datetime="2014-01-10T23:36:00.000Z">
+  <span class="day">11</span><span class="month">1月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>GitPage: <a href="https://github.com/apolkingg8/CommentOnPhoto" target="_blank" rel="external">https://github.com/apolkingg8/CommentOnPhoto</a><br>DemoPage: <a href="http://apolkingg8.github.io/DemoPages/COP/demo.html" target="_blank" rel="external">http://apolkingg8.github.io/DemoPages/COP/demo.html</a></p>
+<p><img class="center" src="http://user-image.logdown.io/user/6060/blog/6071/post/175444/Tyy2HejRSuOhHPHZ3U7T_demo.png" style="width:100%;height:100%;" alt="demo.png"></p>
+<p>之前在某些網站上看過這個功能，覺得還蠻好玩的，不過貌似沒有人把它元件化；剛好這幾天又不小心看到jquery widget factory這東西，於是就拿它做練習的題材了。其實把東西元件化還蠻有趣的，有助於釐清問題或需求的本質，也可以讓自己的Code更加的性感（？）。</p>
+<p>有些東西看起來很簡單，做起來也不難，但是要包成元件就有點麻煩，要包成一個同時兼顧擴展性、相容性、可調性又易於使用的元件就…很考驗功力了XD。因為是第一次寫比較完整的jQuery Plugin，可能有很多需要改進的地方，關於使用上有任何問題或feedback都歡迎聯絡我：）。</p>
+<p>題外話，我開始佩服那些寫文件的人了，README.MD要寫得漂亮真的不簡單啊…</p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/01/04/jquerydatepicker-republic-of-china/">[產出] jQueryDatePicker民國版</a></h1>
+  
+
+    <time datetime="2014-01-04T02:21:00.000Z">
+  <span class="day">4</span><span class="month">1月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>GitPage:<a href="https://github.com/apolkingg8/JQueryDatePickerTW" target="_blank" rel="external">https://github.com/apolkingg8/JQueryDatePickerTW</a></p>
+<p>雖然這東西網路上好像很多，不過幾乎都是去給setting然後改input.val而已，沒有考慮到後續的問題，像是直接改val然後render出錯誤的日曆、沒辦法西元與民國日曆並存、select沒有修、even會被蓋掉等等。於是就自己寫了一個比較方便完整的版本，一方面作為練習，一方面這東西用到的機會還蠻大的XD。</p>
+<p>使用方法和原本的datepicker完全一樣，datepicker原本的api應該都可以照常使用，如果有問題的話請在Git或這裡跟我說 :P</p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/01/02/notesprototype-with-proto/">[筆記] prototype與__proto__</a></h1>
+  
+
+    <time datetime="2014-01-02T03:21:00.000Z">
+  <span class="day">2</span><span class="month">1月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title"><a href="/2014/01/01/notenet-npoi/">[筆記] .NET NPOI</a></h1>
+  
+
+    <time datetime="2014-01-01T07:08:00.000Z">
+  <span class="day">1</span><span class="month">1月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>每次要用都忘記用法，未老先衰阿…</p>
+<p>筆記一些重點</p>
+<ol>
+<li>usage: <code>NPOI</code>, <code>NPOI.HSSF.UserModel</code></li>
+<li>先取得FileStream </li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FileStream fs = new FileStream(url, FileMode.<span class="keyword">Open</span>, FileAccess.<span class="keyword">Read</span>);</div></pre></td></tr></table></figure>
+
+<ol>
+<li>產生HSSFWorkBook </li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">HSSFWorkbook workbook </span>=<span class="string"> new HSSFWorkbook(fs)</span></div></pre></td></tr></table></figure>
+
+<ol>
+<li>結構：Workbook -&gt; Sheets -&gt; Rows -&gt; Cell</li>
+<li>Cell不要直接<code>ToString()</code>，會拿到算式。有<code>NumericCellValue</code>之類的屬性可用</li>
+<li>NuGet拿到的是1.5版，XSSF是2.0版的東西，不過還在alpha，有很多問題。</li>
+<li>要注意很多政府機關文件的格式會錯誤，要開啟後再另存。</li>
+</ol>
+<p>小抱怨一下，某些政府機關的公開資料真的天殺的難找，還要從檔名逆推出文件格式編號再去猜相對應的路經…這是在玩國家寶藏嗎？</p>
+
+    
+    
+    <footer class="meta">
+      
+  <div class="cats">
+<a href="/categories/-Net/">.Net</a><a href="/categories/-Net/筆記/">筆記</a></div>
+
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+  
+
+  <nav id="pagenavi">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2015 EijiHsu
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[筆記] Cordova 3.4 with WP8 踩地雷紀錄 | It&#39;s just works!</title>
+  <meta name="author" content="EijiHsu">
+
+  
+  <meta name="description" content="這整個過程讓我想到WOW裡的一個成就： ［這真是段漫長又奇妙的旅程］不過漫長奇妙之外還多了很多的痛苦就是了…ORZ
+1. cordova platform add wp8時出現亂碼錯誤
+…亂碼是要我怎麼debug阿大哥…不過還好下面有stack，可以看到問題出在wp8_parser.js這隻裡面的這">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title">[筆記] Cordova 3.4 with WP8 踩地雷紀錄</h1>
+  
+
+    <time datetime="2014-05-16T21:52:00.000Z">
+  <span class="day">17</span><span class="month">5月</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>這整個過程讓我想到WOW裡的一個成就： <strong>［這真是段漫長又奇妙的旅程］</strong><br>不過漫長奇妙之外還多了很多的痛苦就是了…ORZ</p>
+<h3 id="1-_cordova_platform_add_wp8時出現亂碼錯誤">1. <code>cordova platform add wp8</code>時出現亂碼錯誤</h3>
+<p>…亂碼是要我怎麼debug阿大哥…<br>不過還好下面有stack，可以看到問題出在<code>wp8_parser.js</code>這隻裡面的這段：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">child_process.exec(command, <span class="function"><span class="keyword">function</span><span class="params">(err, output, stderr)</span> </span>{</div><div class="line">  events.emit(<span class="string">'verbose'</span>, output);</div><div class="line">  <span class="keyword">if</span> (err) {</div><div class="line">  	d.reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Requirements check failed: '</span> + output + stderr));</div><div class="line">  } <span class="keyword">else</span> {</div><div class="line">  	d.resolve();</div><div class="line">	}</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>恩，還是沒有頭緒，試著把err catch註解掉，會得到另一個error<code>副檔名 .js 沒有對應的 script 引擎</code><br>於是按照google大神的指示，裝了Windows Scrip，然後再把原本的err catch加回去…就可以了。</p>
+<blockquote>
+<p>老實說小弟才疏學淺完全不知道發生了什麼事…懇請前輩們指點</p>
+</blockquote>
+<h3 id="2-_cordova_platform_add_wp8成功，但是在CREAT_SUCCESS之後，要加入plugin時發生錯誤Non-white_space_before_first_tag">2. <code>cordova platform add wp8</code>成功，但是在CREAT SUCCESS之後，要加入plugin時發生錯誤<code>Non-white space before first tag</code></h3>
+<p>原因出在<code>\platforms\wp8\CordovaWP8AppProj.csproj</code>跟<code>\platforms\wp8\Properties\WMAppManifest.xml</code>這兩隻檔案一開始的宣告出現亂碼。<br>這是個尚未被解決的Bug，可以參考<a href="https://issues.apache.org/jira/browse/CB-6301" target="_blank" rel="external">這篇</a><br>雖然提出者的環境是簡體中文，但是最底下的解法在繁中的環境下依然有效：</p>
+<blockquote>
+<p>wei jiang added a comment - 09/Apr/14 14:26<br>I have found a solution for this issue:<br>1、open C:\Users.cordova\lib\wp\cordova\3.4.0\wp8\bin\create.js<br>line 68:<br>change<br>‘var f=fso.OpenTextFile(filename,1,2);’<br>to<br>‘var f=fso.OpenTextFile(filename,ForReading,false,TristateFalse);’<br>line 75:<br>change<br>‘var f=fso.OpenTextFile(filename, ForWriting, TristateFalse);’<br>to<br>‘var f=fso.OpenTextFile(filename, ForWriting,true, TristateFalse);’<br>2、Change the encoding of these files to ‘UTF-8 without BOM’<br>in C:\Users.cordova\lib\wp\cordova\3.4.0\wp8\template<br>App.xaml<br>App.xaml.cs<br>CordovaWP8AppProj.csproj<br>CordovaWP8Solution.sln<br>MainPage.xaml.cs<br>Properties\WMAppManifest.xml<br>ps:I did this using Notepad++</p>
+</blockquote>
+<p>另外，<a href="http://my.oschina.net/arrowing/blog/181476#OSC_h2_14" target="_blank" rel="external">這篇</a>也有另一種做法，不過可能是系統語言不同的關係，我用這種作法會沒辦法正確的parse xml。</p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article></div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2015 EijiHsu
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>
