@@ -3,21 +3,34 @@
 <head>
   <meta charset="utf-8">
   
-  <title>javascript | It&#39;s just works!</title>
-  <meta name="author" content="EijiHsu">
-
+  <title>javascript | Hexo</title>
+  <meta name="author" content="John Doe">
   
   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
+
 </head>
 
+
 <body>
-  <header id="header" class="inner"><nav>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
   <ul>
     
       <li><a href="/">Home</a></li>
@@ -25,504 +38,218 @@
       <li><a href="/archives">Archives</a></li>
     
   </ul>
-</nav></header>
-  <div id="content" class="inner">
-
-<header id="archive-header">
-  <h1 class="alignleft">分類：javascript</h1>
-  <div class="search alignright">
-    <form action="http://google.com/search" method="get" accept-charset="utf-8">
-      <input type="search" name="q" results="0" placeholder="搜尋">
-      <input type="hidden" name="q" value="site:apolkingg8.github.io">
-    </form>
-  </div>
-</header>
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/12/31/note-javascriptthe-good-parts-bad-part-2/">[筆記] Javascript : The Good Parts - 不良的部分</a></h1>
-  
-
-    <time datetime="2013-12-31T01:23:00.000Z">
-  <span class="day">31</span><span class="month">12月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>這章列出javascript一些可以輕鬆避用的問題功能。</p>
-<h2 id="==">==</h2>
-<p>用<code>===</code>或<code>!==</code>來取代<code>==</code>或<code>!=</code>，因為後者在運算子兩邊型別不同時，會強制改變值的型別，而且規則十分複雜，下面列出一些有趣的例子：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="string">''</span> == <span class="string">'0'</span> <span class="comment">// false</span></div><div class="line"><span class="number">0</span> == <span class="string">''</span> <span class="comment">// true</span></div><div class="line"><span class="number">0</span> == <span class="string">'0'</span> <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="literal">false</span> == <span class="string">'false'</span> <span class="comment">// false</span></div><div class="line"><span class="literal">false</span> == <span class="string">'0'</span> <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="literal">false</span> == <span class="literal">undefined</span> <span class="comment">// false</span></div><div class="line"><span class="literal">false</span> == <span class="literal">null</span> <span class="comment">// false</span></div><div class="line"><span class="literal">null</span> == <span class="literal">undefined</span> <span class="comment">// true</span></div></pre></td></tr></table></figure>
-
-<p>詳細規則可以參考<a href="http://zero.milosz.ca" target="_blank" rel="external">這張</a>表，不過不要真的去背他阿（笑）</p>
-<h2 id="with敘述">with敘述</h2>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with" target="_blank" rel="external">with敘述</a>提供了取用物件特性時的捷徑，但他的結果有時難以預料，因此應該避免使用他。作者認為with光是出現在語言中就已經拖慢了javascript的速度，這個語言沒有他會更好。</p>
-<h2 id="eval">eval</h2>
-<p>＂eval is evil＂這句耳熟能詳的話就是作者說的。他認為<code>eval</code>有以下的問題：</p>
-<ul>
-<li>難以閱讀</li>
-<li>拖慢效能</li>
-<li>eval文段有太多權限，影響程式安全性</li>
-</ul>
-<p>基於上面這些問題，應該避免使用<code>eval</code>。<code>Function</code>建構式是<code>eval</code>的另外一種形式，同樣應該避免使用。<code>setTimeout</code>與<code>setInterval</code>函式可接受字串或函式作為引數，使用字串作為引數時，他們的行為就像<code>eval</code>，所以使用這兩個函式時應該避免以字串作為引數。</p>
-<blockquote>
-<p>關於’eval is evil’有不少的討論。部分的人認為應該在＂合理的需要＂而且＂你知道自己在幹什麼＂的情況下使用他，而不是如此斷定的禁用他。不過我還是傾向於後者，因為＂知道自己在幹什麼＂聽起來很簡單，事實上很難啊</p>
-</blockquote>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/javascript/">javascript</a><a href="/categories/javascript/筆記/">筆記</a></div>
-
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/12/24/note-javascriptthe-good-parts-bad-part-1/">[筆記] Javascript : The Good Parts - 糟糕的部分</a></h1>
-  
-
-    <time datetime="2013-12-24T00:44:00.000Z">
-  <span class="day">24</span><span class="month">12月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <h2 id="全域變數">全域變數</h2>
-<p>javascript最糟糕的一項特性，就是他對於全域變數的依賴。有三種可以宣告全域變數的方式：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="string">'value'</span>; <span class="comment">// 直接在最外層宣告</span></div><div class="line"><span class="built_in">window</span>.foo = <span class="string">'value'</span> <span class="comment">// window物件是所有全域變數的容器</span></div><div class="line">foo = <span class="string">'value'</span> <span class="comment">// 不經宣告就使用變數，稱為implied global</span></div></pre></td></tr></table></figure>
-
-<p>第三種原本的用意是對於初學者的體貼（蛤？），但這反而容易造成很難被找出來的bug。</p>
-<h2 id="範圍">範圍</h2>
-<p>如同前面提到的，javascript沒有block scope，只有function scope，而且裡面還有變數抬升的特性。所以最好 <strong>在每個區塊起始的地方宣告完區塊內所有變數</strong> 。</p>
-<h2 id="分號的安插">分號的安插</h2>
-<p>javascript有個試圖糾正錯誤的機制，它會自動幫你安插分號。不過這個機制有時候會造成更多的麻煩：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span></div><div class="line">{</div><div class="line">	status: <span class="literal">true</span>;</div><div class="line">};</div></pre></td></tr></table></figure>
-
-<p>上面的程式看起來很正常，不過javascript會認為你<code>return</code>後面忘了加上分號而貼心的幫你補上，於是就變成這樣：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span>; <span class="comment">// undefind</span></div><div class="line">{</div><div class="line">	status: <span class="literal">true</span>;</div><div class="line">};</div></pre></td></tr></table></figure>
-
-<p>所以撰寫javascript時應該採用K&amp;R風格，把<code>{</code>放在句尾，可以避免類似的悲劇發生。<br>
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/javascript/">javascript</a><a href="/categories/javascript/筆記/">筆記</a></div>
-
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/12/24/168788/">[筆記] Javascript : The Good Parts - Ch.9 風格</a></h1>
-  
-
-    <time datetime="2013-12-24T00:42:00.000Z">
-  <span class="day">24</span><span class="month">12月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/javascript/">javascript</a><a href="/categories/javascript/筆記/">筆記</a></div>
-
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/12/19/javascript-good-parts-ch6/">[筆記] Javascript : The Good Parts - Ch.6 陣列</a></h1>
-  
-
-    <time datetime="2013-12-19T08:16:00.000Z">
-  <span class="day">19</span><span class="month">12月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>此篇文章位於<a href="http://apolkingg8.blogspot.com/" target="_blank" rel="external">舊的Blogger</a>，因為轉移過程中有格式缺漏，請<a href="http://apolkingg8.blogspot.com/2013/12/javascript-good-parts-ch6.html" target="_blank" rel="external">點此</a>觀看原文．</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/javascript/">javascript</a><a href="/categories/javascript/筆記/">筆記</a></div>
-
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/12/18/javascript-good-parts-ch5-19/">[筆記] Javascript : The Good Parts - Ch.5 繼承 (二)</a></h1>
-  
-
-    <time datetime="2013-12-18T08:48:00.000Z">
-  <span class="day">18</span><span class="month">12月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>此篇文章位於<a href="http://apolkingg8.blogspot.com/" target="_blank" rel="external">舊的Blogger</a>，因為轉移過程中有格式缺漏，請<a href="http://apolkingg8.blogspot.com/2013/12/javascript-good-parts-ch5_19.html" target="_blank" rel="external">點此</a>觀看原文．</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/javascript/">javascript</a><a href="/categories/javascript/筆記/">筆記</a></div>
-
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/12/14/javascript-good-parts-ch5/">[筆記] Javascript : The Good Parts - Ch.5 繼承 (一)</a></h1>
-  
-
-    <time datetime="2013-12-13T23:27:00.000Z">
-  <span class="day">14</span><span class="month">12月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>此篇文章位於<a href="http://apolkingg8.blogspot.com/" target="_blank" rel="external">舊的Blogger</a>，因為轉移過程中有格式缺漏，請<a href="http://apolkingg8.blogspot.com/2013/12/javascript-good-parts-ch5.html" target="_blank" rel="external">點此</a>觀看原文．</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/javascript/">javascript</a><a href="/categories/javascript/筆記/">筆記</a></div>
-
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/12/11/javascript-good-parts-ch4-11/">[筆記] Javascript : The Good Parts - Ch.4 函式 (三)</a></h1>
-  
-
-    <time datetime="2013-12-11T01:21:00.000Z">
-  <span class="day">11</span><span class="month">12月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>此篇文章位於<a href="http://apolkingg8.blogspot.com/" target="_blank" rel="external">舊的Blogger</a>，因為轉移過程中有格式缺漏，請<a href="http://apolkingg8.blogspot.com/2013/12/javascript-good-parts-ch4_11.html" target="_blank" rel="external">點此</a>觀看原文．</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/javascript/">javascript</a><a href="/categories/javascript/筆記/">筆記</a></div>
-
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/12/09/javascript-good-parts-ch4-9/">[筆記] Javascript : The Good Parts - Ch.4 函式 (二)</a></h1>
-  
-
-    <time datetime="2013-12-09T03:18:00.000Z">
-  <span class="day">9</span><span class="month">12月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>此篇文章位於<a href="http://apolkingg8.blogspot.com/" target="_blank" rel="external">舊的Blogger</a>，因為轉移過程中有格式缺漏，請<a href="http://apolkingg8.blogspot.com/2013/12/javascript-good-parts-ch4_9.html" target="_blank" rel="external">點此</a>觀看原文．</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/javascript/">javascript</a><a href="/categories/javascript/筆記/">筆記</a></div>
-
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/12/04/javascript-good-parts-ch4/">[筆記] Javascript : The Good Parts - Ch.4 函式 (一)</a></h1>
-  
-
-    <time datetime="2013-12-04T02:02:00.000Z">
-  <span class="day">4</span><span class="month">12月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>此篇文章位於<a href="http://apolkingg8.blogspot.com/" target="_blank" rel="external">舊的Blogger</a>，因為轉移過程中有格式缺漏，請<a href="http://apolkingg8.blogspot.com/2013/12/javascript-good-parts-ch4.html" target="_blank" rel="external">點此</a>觀看原文．</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/javascript/">javascript</a><a href="/categories/javascript/筆記/">筆記</a></div>
-
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2013/12/03/javascript-good-parts-ch3/">[筆記] Javascript : The Good Parts - Ch.3 物件</a></h1>
-  
-
-    <time datetime="2013-12-03T01:17:00.000Z">
-  <span class="day">3</span><span class="month">12月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>此篇文章位於<a href="http://apolkingg8.blogspot.com/" target="_blank" rel="external">舊的Blogger</a>，因為轉移過程中有格式缺漏，請<a href="http://apolkingg8.blogspot.com/2013/12/javascript-good-parts-ch3.html" target="_blank" rel="external">點此</a>觀看原文．</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/javascript/">javascript</a><a href="/categories/javascript/筆記/">筆記</a></div>
-
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-
-  <nav id="pagenavi">
-  
-  
-    <a href="/categories/javascript/page/2/" class="alignright next">下一頁</a>
-  
   <div class="clearfix"></div>
 </nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title category">javascript</h2>
+
+
+  <div class="archive">
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-12-31T01:23:00.000Z"><a href="/2013/12/31/2013-12-31-note-javascriptthe-good-parts-bad-part-2/">2013-12-31</a></time>
+            
+              <h1 class="title"><a href="/2013/12/31/2013-12-31-note-javascriptthe-good-parts-bad-part-2/">[筆記] Javascript : The Good Parts - 不良的部分</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-12-24T00:44:00.000Z"><a href="/2013/12/24/2013-12-24-note-javascriptthe-good-parts-bad-part-1/">2013-12-24</a></time>
+            
+              <h1 class="title"><a href="/2013/12/24/2013-12-24-note-javascriptthe-good-parts-bad-part-1/">[筆記] Javascript : The Good Parts - 糟糕的部分</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-12-24T00:42:00.000Z"><a href="/2013/12/24/2013-12-24-168788/">2013-12-24</a></time>
+            
+              <h1 class="title"><a href="/2013/12/24/2013-12-24-168788/">[筆記] Javascript : The Good Parts - Ch.9 風格</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-12-19T08:16:00.000Z"><a href="/2013/12/19/2013-12-19-javascript-good-parts-ch6/">2013-12-19</a></time>
+            
+              <h1 class="title"><a href="/2013/12/19/2013-12-19-javascript-good-parts-ch6/">[筆記] Javascript : The Good Parts - Ch.6 陣列</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-12-18T08:48:00.000Z"><a href="/2013/12/18/2013-12-18-javascript-good-parts-ch5-19/">2013-12-18</a></time>
+            
+              <h1 class="title"><a href="/2013/12/18/2013-12-18-javascript-good-parts-ch5-19/">[筆記] Javascript : The Good Parts - Ch.5 繼承 (二)</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-12-13T23:27:00.000Z"><a href="/2013/12/14/2013-12-14-javascript-good-parts-ch5/">2013-12-14</a></time>
+            
+              <h1 class="title"><a href="/2013/12/14/2013-12-14-javascript-good-parts-ch5/">[筆記] Javascript : The Good Parts - Ch.5 繼承 (一)</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-12-11T01:21:00.000Z"><a href="/2013/12/11/2013-12-11-javascript-good-parts-ch4-11/">2013-12-11</a></time>
+            
+              <h1 class="title"><a href="/2013/12/11/2013-12-11-javascript-good-parts-ch4-11/">[筆記] Javascript : The Good Parts - Ch.4 函式 (三)</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-12-09T03:18:00.000Z"><a href="/2013/12/09/2013-12-09-javascript-good-parts-ch4-9/">2013-12-09</a></time>
+            
+              <h1 class="title"><a href="/2013/12/09/2013-12-09-javascript-good-parts-ch4-9/">[筆記] Javascript : The Good Parts - Ch.4 函式 (二)</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-12-04T02:02:00.000Z"><a href="/2013/12/04/2013-12-04-javascript-good-parts-ch4/">2013-12-04</a></time>
+            
+              <h1 class="title"><a href="/2013/12/04/2013-12-04-javascript-good-parts-ch4/">[筆記] Javascript : The Good Parts - Ch.4 函式 (一)</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-12-03T01:17:00.000Z"><a href="/2013/12/03/2013-12-03-javascript-good-parts-ch3/">2013-12-03</a></time>
+            
+              <h1 class="title"><a href="/2013/12/03/2013-12-03-javascript-good-parts-ch3/">[筆記] Javascript : The Good Parts - Ch.3 物件</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+  </div>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:apolkingg8.github.io">
+  </form>
 </div>
-  <footer id="footer" class="inner"><div class="social alignright">
+
   
+<div class="widget tag">
+  <h3 class="title">分類</h3>
+  <ul class="entry">
   
+    <li><a href="/categories/Net/">.Net</a><small>1</small></li>
   
+    <li><a href="/categories/github/Octopress/">Octopress</a><small>1</small></li>
   
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+    <li><a href="/categories/閒聊/微軟/RWD/">RWD</a><small>1</small></li>
+  
+    <li><a href="/categories/github/">github</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/categories/logdown/">logdown</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/微軟/">微軟</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/Net/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/">閒聊</a><small>1</small></li>
+  
+    <li><a href="/categories/logdown/閒聊/">閒聊</a><small>1</small></li>
+  
+  </ul>
 </div>
-<p>
+
+
   
-  &copy; 2015 EijiHsu
+<div class="widget tag">
+  <h3 class="title">標籤</h3>
+  <ul class="entry">
   
-</p>
+    <li><a href="/tags/learning-es6/">learning, es6</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 John Doe
+  
+</div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
@@ -536,12 +263,5 @@
 })(jQuery);
 </script>
 
-
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
-</div>
-<script src="/js/phasebeam.js"></script>
 </body>
 </html>

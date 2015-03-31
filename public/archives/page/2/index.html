@@ -3,21 +3,34 @@
 <head>
   <meta charset="utf-8">
   
-  <title>第 2 頁 | 彙整 | It&#39;s just works!</title>
-  <meta name="author" content="EijiHsu">
-
+  <title>第 2 頁 | 彙整 | Hexo</title>
+  <meta name="author" content="John Doe">
   
   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
+
 </head>
 
+
 <body>
-  <header id="header" class="inner"><nav>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
   <ul>
     
       <li><a href="/">Home</a></li>
@@ -25,573 +38,218 @@
       <li><a href="/archives">Archives</a></li>
     
   </ul>
-</nav></header>
-  <div id="content" class="inner">
-
-<header id="archive-header">
-  <h1 class="alignleft">彙整</h1>
-  <div class="search alignright">
-    <form action="http://google.com/search" method="get" accept-charset="utf-8">
-      <input type="search" name="q" results="0" placeholder="搜尋">
-      <input type="hidden" name="q" value="site:apolkingg8.github.io">
-    </form>
-  </div>
-</header>
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/03/08/note-in-webstorm-added-compass-syntax-tips/">[筆記] 在WebStorm中新增compass的語法提示</a></h1>
-  
-
-    <time datetime="2014-03-08T06:31:00.000Z">
-  <span class="day">8</span><span class="month">3月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>在WebStorm中，compass是沒有內建代碼提示的，而且所有的compass mixin都會被標示為undefined mixin（雖然不影響compiler），連<code>@import compass</code>底下都會爬一條紅蚯蚓，跟你說他找不到compass.sass這個檔案。目前看到最好的解法是手動新增符號連結。</p>
-<p>先切到專案中的sass目錄裡</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> projectlocate/sass</div></pre></td></tr></table></figure>
-
-<p>新增一個compass的符號連結</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mklink</span> /d compass <span class="variable">$COMPASS_LOCATE</span></div></pre></td></tr></table></figure>
-
-<p>$COMPASS_LOCATE`是裝在ruby gem底下的compass stylesheet位置，舉例來說我的長這樣：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">H:<span class="command">\Units</span><span class="command">\Ruby</span>193<span class="command">\lib</span><span class="command">\ruby</span><span class="command">\gems</span>\1.9.1<span class="command">\gems</span><span class="command">\compass</span>-0.12.3<span class="command">\frameworks</span><span class="command">\compass</span><span class="command">\stylesheets</span><span class="command">\compass</span></div></pre></td></tr></table></figure>
-
-<p>然後就可以得到compass的代碼提示了，這作法就類似把新增compass到你的libary裡面，只是沒有實際引入檔案。</p>
-<p>如果要移除這個符號連結， <strong>不要直接刪除</strong>，要用下面這行指令：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">rmdir</span> compass</div></pre></td></tr></table></figure>
-
-<p>至於mac或linux中，Symbolic Link的指令是這樣：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">ln -s &lt;dest&gt;</span> &lt;link&gt;</span></div><div class="line">rm &lt;dest&gt;</div></pre></td></tr></table></figure>
-
-<p>例如我的是/Library/Ruby/Gems/2.0.0/gems/compass-0.12.3/frameworks/compass/stylesheets/compass</p>
-<blockquote>
-<p>我說大哥阿，你既然都bundle compass進去了，為什麼不搞得徹底一點呢….</p>
-</blockquote>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/03/08/note-sass-with-webstorm/">[筆記] WebStorm中Sass File Watcher的一顆小地雷</a></h1>
-  
-
-    <time datetime="2014-03-08T04:37:00.000Z">
-  <span class="day">8</span><span class="month">3月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>當我們在寫Sass的時候，把它拆成各個區塊方便管理是一件很正常的事，像這樣：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">partial</span>.sass</div><div class="line">main.sass</div></pre></td></tr></table></figure>
-
-<p>然後，因為partial.sass不需要被compiler成partial.css，所以檔名前面會加上加上<code>_</code>，變成_partial.sass。到目前為止一切都很合理。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">_partial.sass</div><div class="line">main.sass</div></pre></td></tr></table></figure>
-
-<p>接下來在main.sass中引入這個partial，看起來沒什麼問題，不過接下來就是地雷了</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">import</span> partial</span></div><div class="line"></div><div class="line">// main.sass</div></pre></td></tr></table></figure>
-
-<p>通常，我們會希望在更改_partial中的內容後，重新編譯引入他的檔案，也就是main.sass。爬過stackoverflow之後，可以知道WebStorm提供了一個選項給你，叫做”track only root files”，取消的話她就會連帶編譯跟這個檔有關的所有檔案，很貼心對吧？</p>
-<p>…才怪，當你實際測試之後會發現，更改_partial.sass的內容後，並沒有編譯出新的main.css，要把import的檔名改一下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">import</span> _partial</span></div><div class="line"></div><div class="line">// main.sass</div></pre></td></tr></table></figure>
-
-<p>這樣子，_partial.sass的內容被更改的時候，就會一併編譯main.sass了。不過問題還沒結束，仔細看資料夾，你會發現多了一個_partial.css…沒錯，他連<code>_</code>開頭的檔案也編譯了。</p>
-<p>正確的解法應該是， <strong>要勾選track only root files，然後import的檔名必須加上<code>_</code></strong>，這樣就能正確的編譯且不產生多餘的檔案了。</p>
-<blockquote>
-<p>…馬德，stackoverflow誤我半天…</p>
-</blockquote>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/02/10/note-flex-with-less/">[筆記] Flex with LESS</a></h1>
-  
-
-    <time datetime="2014-02-10T07:42:00.000Z">
-  <span class="day">10</span><span class="month">2月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/02/04/note-of-semantic-html/">[筆記] HTML5 Semantic Elements</a></h1>
-  
-
-    <time datetime="2014-02-03T23:59:00.000Z">
-  <span class="day">4</span><span class="month">2月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p><img src="http://html5doctor.com/downloads/h5d-sectioning-flowchart.png"></p>
-<p>其實舊的HTML4.01中也有一些元素是具有語意性的，例如<code>&lt;form&gt;</code>、<code>&lt;table&gt;</code>、<code>&lt;img&gt;</code>，而在HTML5中，新增了更多的常用語意性元素，用來取代以往由各種<code>&lt;div&gt;</code>切成的區塊，例如<code>&lt;head&gt;</code>、<code>&lt;footer&gt;</code>等等。下面整理一些常用的HTML5語意性元素。</p>
-<h3 id="\">\<header></header></h3>
-<p>用來表示區塊標題的區塊元素，這個區塊可以是一整個頁面、一個段落或一篇文章，可以把它當成一個放置介紹內容的容器。一個頁面中可以有多個header。\<header>是一容器沒錯，但是它裡面裝的東西應該只有區塊的標題或者摘要。不要把\<header>當成\<div class="header">來使用。另外，\<header>也不能放在\<footer>、\<address>或另一個\<header>裡面。</header></address></footer></header></div></header></header></p>
-<h3 id="\-1">\<nav></nav></h3>
-<p>導覽列。裡面裝的東西應該只有主要的navigation links，不要把各種link都丟到\<nav>裡面。舉例來說，footer裡面常常會有一排link，那個就不需要包進\<nav>。</nav></nav></p>
-<h3 id="\-1">\<section></section></h3>
-<p>文件中的一個專題群組或區塊。一般來說，裡面都會包含heading。如果這個區塊的內容可以分成幾個部分的話，那應該使用article。</p>
-<blockquote>
-<p>Examples of sections would be chapters, the various tabbed pages in a tabbed dialog box, or the numbered sections of a thesis. A Web site’s home page could be split into sections for an introduction, news items, and contact information.</p>
-</blockquote>
-<p>使用section的地方像是文章中的章節，一個標籤式對話框中的各個標籤頁面，或論文的編號部分。一個網站的主業通常可以分成幾個section，像是introduction，news items還有contact information。</p>
-<blockquote>
-<p>Do not use the \<section> element as a generic container; this is what \<div> is for, especially when the sectioning is only for styling purposes.</div></section></p>
-</blockquote>
-<p>不要把section當成div用，這大概是最常見的錯誤用法。section內裝的應該是有意義且附帶標題的一段內容。例如這樣：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">section</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Heading<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Bunch of awesome content<span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">section</span>&gt;</span></div></pre></td></tr></table></figure>
-
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/02/03/note-webclient-side-separation-of-concerns/">[閒聊] WebClient端的關注點分離</a></h1>
-  
-
-    <time datetime="2014-02-03T02:55:00.000Z">
-  <span class="day">3</span><span class="month">2月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>內容出自<a href="http://shop.oreilly.com/product/9780596806767.do" target="_blank" rel="external">Javascript:patterns</a>第八章</p>
-<p>web的client端可以分成三個主要的關注點，分別是：</p>
-<ul>
-<li>Content(內容，HTML文件)</li>
-<li>Presentation(表現，CSS樣式)</li>
-<li>Behavior(行為，包含使用者互動及對文件的動態改變，通常使用Javascript)</li>
-</ul>
-<p>在做client端的規畫時，應該盡可能地保持關注點分離，有助於提升程式的品質及可維護性。 <strong>關注點分離</strong> 同樣可以和 <strong>漸進式增強</strong> 的觀念相輔相成：使用者從最基礎的內容（HTML）開始，隨著支援功能的增強而獲得更好的體驗（CSS, Javascript）。在實際應用中如下：</p>
-<ul>
-<li>將CSS關閉，確認網頁內容是否可以使用﹑內文是否可以閱讀</li>
-<li>將Javascript關閉，確保網頁主要功能還是可以正常運作，所有的連結都可以使用（所以不要用<code>href=&quot;#&quot;</code>），所有的表單都可以正常的提交。</li>
-<li>不要使用內嵌的事件處理器（例如<code>onclick</code>），或是內嵌的style屬性，因為這些東西不屬於內容層</li>
-<li>撰寫語意化的HTML</li>
-</ul>
-<p>Javascript的風格應為 <strong>unobtrusive</strong> ，意思是不應該擋到使用者的路，如果遇到不支援的瀏覽器也不應該讓頁面無法使用。另外，在處理瀏覽器差異時，應該用功能檢測取代瀏覽器偵測。</p>
-<h2 id="一點小感想">一點小感想</h2>
-<hr>
-<p>會寫這篇文章，是因為對書中有些地方有些不同的想法。我同意漸進式增強的觀念，同時也贊同關注點分離帶來的程式品質與可維護性，但是在有些狀況下，完美的關注點分離可能會降低使用者的最高體驗。例如SPA Web，在大量使用ajax的狀況下很難達到＂移除javascript仍然保持網站正常運作＂的條件，但是有必要為了這些極少數不支援javascript的使用者（無障礙網頁另當別論），去放棄大部分使用者的體驗嗎？記得之前看過某篇文章（原諒我找不到他），作者的觀點是＂ <strong>給那些使用者一些提示，並引導他們前進</strong> ＂，我想這個做法不論是對於使用者或是生產者而言都是好的。</p>
-<blockquote>
-<p>雖然<a href="http://arstechnica.com/information-technology/2013/10/internet-explorer-6-usage-drops-below-5-percent-in-september/" target="_blank" rel="external">IE6,7使用者比例終於下跌了</a>，但是廣大中國網民的IE6比率依舊讓人絕望阿…</p>
-</blockquote>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/02/03/experience-image-beacon/">[筆記] Javascript Image Beacon</a></h1>
-  
-
-    <time datetime="2014-02-03T02:22:00.000Z">
-  <span class="day">3</span><span class="month">2月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>在javascript中，要對Server發出GET請求，除了慣用的ajax之外還有另外一個方法，叫做Image Beacon。方法如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> beacon = <span class="keyword">new</span> Image(),</div><div class="line">    url = <span class="string">'/record.asp?'</span>,</div><div class="line">    params = [</div><div class="line">    	<span class="string">'name=John'</span>, <span class="string">'age=18'</span></div><div class="line">    ];</div><div class="line">beacon.scr = url + params.join(<span class="string">'&'</span>);</div></pre></td></tr></table></figure>
-
-<p>利用<code>Image</code>物件的<code>src</code>屬性來對伺服器發出GET請求，上面的範例對<code>/record.asp</code>發出了一個GET請求，並帶入參數<code>name</code>跟<code>age</code>。這個Image物件並不需要被Render到頁面中。</p>
-<p>Image Beacon跟ajax的差別在於：</p>
-<ul>
-<li>可跨域</li>
-<li>效能比XHR來的好</li>
-<li>只能使用GET，所以有長度限制</li>
-</ul>
-<p>這種方法常被用於 <strong>只需要向Server發送數據</strong> 的場合，例如蒐集統計數據。在這種情況下，Server可以回傳一個<code>204 No Content</code>的header，代表有收到這份訊息，避免客戶端持續等待。</p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/01/23/experience-media-query-with-less/">[筆記] Media query with LESS</a></h1>
-  
-
-    <time datetime="2014-01-22T23:08:00.000Z">
-  <span class="day">23</span><span class="month">1月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>在LESS中，對於Media Query有些更方便的寫法，下面舉一些例子：</p>
-<h2 id="嵌套">嵌套</h2>
-<hr>
-<p>可以直接把<code>@media</code>當成selector寫，例如：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.one {</div><div class="line">    @media (width: 400px) {</div><div class="line">        font-size: 1.2em;</div><div class="line">        @media print and color {</div><div class="line">            color: blue;</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>會被編譯成</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> (width: <span class="number">400px</span>) </span>{</div><div class="line">  <span class="class">.one</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">1.2em</span></span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">}</div><div class="line"><span class="at_rule">@<span class="keyword">media</span> (width: <span class="number">400px</span>) and print and color </span>{</div><div class="line">  <span class="class">.one</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> blue</span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">}</div></pre></td></tr></table></figure>
-
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/01/23/note-css-media-query/">[筆記] CSS Media Query</a></h1>
-  
-
-    <time datetime="2014-01-22T21:29:00.000Z">
-  <span class="day">23</span><span class="month">1月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>最近在做RWD的練習，赫然發現自己的CSS有點弱阿…長久以來都習慣把一些東西交給javascript處理，是時候該打好CSS的根底了。（以上題外話）下面大概筆記一下關於Media Query的部分。</p>
-<h2 id="使用方式">使用方式</h2>
-<hr>
-<p>有三種使用方式，第一種是在<code>&lt;link&gt;</code>Tag中將條件加入：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen and (min-width: 450px) and (max-width: 950px)"</span> <span class="attribute">href</span>=<span class="value">"style1.css"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen and (min-width: 950px)"</span> <span class="attribute">href</span>=<span class="value">"style2.css"</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- 當螢幕寬度大於450小於950的時候引入style1，大於950的時候引入style2 --&gt;</span></div></pre></td></tr></table></figure>
-
-<blockquote>
-<p><code>&lt;link&gt;</code>標籤中的<code>media</code>屬性是從html4就有的，只不過那時指定的只有media type，並不支援media query，同樣的，media type在css2中也可以使用。</p>
-</blockquote>
-<p>第二種是在CSS中的<code>@import</code>中加入條件：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@import url(color.css) screen and (color);</div><div class="line">// 在彩色顯示下引入color.css</div></pre></td></tr></table></figure>
-
-<blockquote>
-<p>雖然我把他列出來，但請不要使用css的<code>@import</code>，他並不是標準的一部分，而且會拖慢網頁的效能。這點在<a href="http://www.amazon.com/dp/0596529309?tag=stevsoud-20&amp;camp=14573&amp;creative=327641&amp;linkCode=as1&amp;creativeASIN=0596529309&amp;adid=1S1KP4EV129EN37422C0&amp;" target="_blank" rel="external">High Performance Web Sites</a>中有提到，可以參考<a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/" target="_blank" rel="external">這篇文章</a>。</p>
-</blockquote>
-<p>第三種是在css selector中加入條件：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@media all and (min-width:500px) { … }</div><div class="line">@media (min-width:500px) { … }</div><div class="line">// 這兩者是一樣的</div></pre></td></tr></table></figure>
-
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/01/17/notes-on-loading-script/">[筆記] 關於載入Script</a></h1>
-  
-
-    <time datetime="2014-01-17T01:02:00.000Z">
-  <span class="day">17</span><span class="month">1月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>最近在看<a href="http://www.tenlong.com.tw/items/9862764198?item_id=427729" target="_blank" rel="external">Javascript Patterns</a>這本書，剛好這陣子有碰到比較大的js data，就把書中一些關於Script讀取策略的部分整理一下。</p>
-<h2 id="Script_Tag的屬性">Script Tag的屬性</h2>
-<hr>
-<p><code>language</code><br>這個屬性有各種不同大小寫的格式，像是：<code>JavaScript</code>, <code>javascript</code>, <code>Javascript</code>，有時候還附帶版本號。但其實根本就不應該用這個屬性，因為預設語言就是JavaScript，版本號也運作得不好。</p>
-<blockquote>
-<p>註：W3C已經不推薦使用這個屬性</p>
-</blockquote>
-<p><code>type</code><br>HTML4跟XHAML1標準會驗證這個屬性為必要，但其實不應該如此，因為預設就是JavaScript。HTML5已經將這個屬性改成非必要。</p>
-<p><code>defer</code><br>這段指定的Script會在頁面Render結束之後才運作，HTML5有更方便的<code>async</code>屬性。</p>
-<blockquote>
-<p>async跟defer的區別在於前者是在ParseDOM時載入Script並在載入完成後執行，後者則是在頁面載入結束後載入Script，並在載入完成後執行。一個小技巧是同時放上<code>async</code>跟<code>defer</code>，支援async的瀏覽器會忽略defer，不支援的則會使用defer。<br>關於<code>defer</code>這個屬性，其實各瀏覽器實作的方式不一樣，許多現代瀏覽器，例如Chrome，預設就是在頁面Render結束後才載入<code>&lt;head&gt;</code>中有<code>src</code>的<code>&lt;scripe&gt;</code>。<a href="http://mao.li/javascript/javascript-defer/" target="_blank" rel="external">這篇文章</a>有作一些測試。</p>
-</blockquote>
-<h2 id="放置Script_Tag的位置">放置Script Tag的位置</h2>
-<hr>
-<p><code>&lt;script&gt;</code>標籤會阻擋在他之後的事件，包括頁面render或下載，所以放置<code>&lt;Script&gt;</code>最好的位置是在<code>&lt;/body&gt;</code>之前，這樣可以防止頁面載入被Scrtpt標籤阻擋而拖延。最差的方式則是在<code>&lt;head&gt;</code>中引入多個獨立的檔案，會佔去server許多不必要的連線數。</p>
-<blockquote>
-<p>個人經驗，有沒有pack成單一檔案對伺服器負載能力真的差蠻多的</p>
-</blockquote>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/01/15/-number-of-kaohsiung-mrt-station/">[產出] 高雄捷運進站人數變化圖</a></h1>
-  
-
-    <time datetime="2014-01-15T06:37:00.000Z">
-  <span class="day">15</span><span class="month">1月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>Demo: <a href="http://apolkingg8.github.io/DemoPages/KRT_logMap/demo.html" target="_blank" rel="external">http://apolkingg8.github.io/DemoPages/KRT_logMap/demo.html</a></p>
-<p>前陣子之前在社團看到北捷的運量變化圖，心血來潮就想說來個高捷版，不過基於各種原因拖到現在才做好XD</p>
-<p>剛開始猶豫很久，要用SVG還是Canvas還是純CSS，最後因為相容性的關係而選擇了SVG，不過最後做跨瀏覽器測試的時候還是有點問題（Opera有時候會卡住，平平都是Blink阿）。因為跟SVG不熟，做到後來有種想打掉重做的衝動（例如包裝架構，互動方式，還有那個根本沒必要的Slider…），不過還是等有空再說吧，好多預計要看要玩的東西都還沒動呢（跪</p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-
-  <nav id="pagenavi">
-  
-    <a href="/archives/" class="alignleft prev">上一頁</a>
-  
-  
-    <a href="/archives/page/3/" class="alignright next">下一頁</a>
-  
   <div class="clearfix"></div>
 </nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">彙整</h2>
+
+
+  <div class="archive">
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-03-26T01:54:00.000Z"><a href="/2014/03/26/2014-03-26-note-chrome-workspace-with-sass-and-compass/">2014-03-26</a></time>
+            
+              <h1 class="title"><a href="/2014/03/26/2014-03-26-note-chrome-workspace-with-sass-and-compass/">[筆記] Chrome workspace with Sass and Compass</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-03-08T06:31:00.000Z"><a href="/2014/03/08/2014-03-08-note-in-webstorm-added-compass-syntax-tips/">2014-03-08</a></time>
+            
+              <h1 class="title"><a href="/2014/03/08/2014-03-08-note-in-webstorm-added-compass-syntax-tips/">[筆記] 在WebStorm中新增compass的語法提示</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-03-08T04:37:00.000Z"><a href="/2014/03/08/2014-03-08-note-sass-with-webstorm/">2014-03-08</a></time>
+            
+              <h1 class="title"><a href="/2014/03/08/2014-03-08-note-sass-with-webstorm/">[筆記] WebStorm中Sass File Watcher的一顆小地雷</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-02-10T07:42:00.000Z"><a href="/2014/02/10/2014-02-10-note-flex-with-less/">2014-02-10</a></time>
+            
+              <h1 class="title"><a href="/2014/02/10/2014-02-10-note-flex-with-less/">[筆記] Flex with LESS</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-02-03T23:59:00.000Z"><a href="/2014/02/04/2014-02-04-note-of-semantic-html/">2014-02-04</a></time>
+            
+              <h1 class="title"><a href="/2014/02/04/2014-02-04-note-of-semantic-html/">[筆記] HTML5 Semantic Elements</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-02-03T02:55:00.000Z"><a href="/2014/02/03/2014-02-03-note-webclient-side-separation-of-concerns/">2014-02-03</a></time>
+            
+              <h1 class="title"><a href="/2014/02/03/2014-02-03-note-webclient-side-separation-of-concerns/">[閒聊] WebClient端的關注點分離</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-02-03T02:22:00.000Z"><a href="/2014/02/03/2014-02-03-experience-image-beacon/">2014-02-03</a></time>
+            
+              <h1 class="title"><a href="/2014/02/03/2014-02-03-experience-image-beacon/">[筆記] Javascript Image Beacon</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-01-22T23:08:00.000Z"><a href="/2014/01/23/2014-01-23-experience-media-query-with-less/">2014-01-23</a></time>
+            
+              <h1 class="title"><a href="/2014/01/23/2014-01-23-experience-media-query-with-less/">[筆記] Media query with LESS</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-01-22T21:29:00.000Z"><a href="/2014/01/23/2014-01-23-note-css-media-query/">2014-01-23</a></time>
+            
+              <h1 class="title"><a href="/2014/01/23/2014-01-23-note-css-media-query/">[筆記] CSS Media Query</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-01-17T01:02:00.000Z"><a href="/2014/01/17/2014-01-17-notes-on-loading-script/">2014-01-17</a></time>
+            
+              <h1 class="title"><a href="/2014/01/17/2014-01-17-notes-on-loading-script/">[筆記] 關於載入Script</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+  </div>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:apolkingg8.github.io">
+  </form>
 </div>
-  <footer id="footer" class="inner"><div class="social alignright">
+
   
+<div class="widget tag">
+  <h3 class="title">分類</h3>
+  <ul class="entry">
   
+    <li><a href="/categories/Net/">.Net</a><small>1</small></li>
   
+    <li><a href="/categories/github/Octopress/">Octopress</a><small>1</small></li>
   
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+    <li><a href="/categories/閒聊/微軟/RWD/">RWD</a><small>1</small></li>
+  
+    <li><a href="/categories/github/">github</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/categories/logdown/">logdown</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/微軟/">微軟</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/Net/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/">閒聊</a><small>1</small></li>
+  
+    <li><a href="/categories/logdown/閒聊/">閒聊</a><small>1</small></li>
+  
+  </ul>
 </div>
-<p>
+
+
   
-  &copy; 2015 EijiHsu
+<div class="widget tag">
+  <h3 class="title">標籤</h3>
+  <ul class="entry">
   
-</p>
+    <li><a href="/tags/learning-es6/">learning, es6</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 John Doe
+  
+</div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
@@ -605,12 +263,5 @@
 })(jQuery);
 </script>
 
-
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
-</div>
-<script src="/js/phasebeam.js"></script>
 </body>
 </html>

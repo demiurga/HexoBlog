@@ -3,21 +3,34 @@
 <head>
   <meta charset="utf-8">
   
-  <title>彙整：2014/4 | It&#39;s just works!</title>
-  <meta name="author" content="EijiHsu">
-
+  <title>彙整：2014/4 | Hexo</title>
+  <meta name="author" content="John Doe">
   
   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
+
 </head>
 
+
 <body>
-  <header id="header" class="inner"><nav>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
   <ul>
     
       <li><a href="/">Home</a></li>
@@ -25,112 +38,110 @@
       <li><a href="/archives">Archives</a></li>
     
   </ul>
-</nav></header>
-  <div id="content" class="inner">
-
-<header id="archive-header">
-  <h1 class="alignleft">彙整：2014/4</h1>
-  <div class="search alignright">
-    <form action="http://google.com/search" method="get" accept-charset="utf-8">
-      <input type="search" name="q" results="0" placeholder="搜尋">
-      <input type="hidden" name="q" value="site:apolkingg8.github.io">
-    </form>
-  </div>
-</header>
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/04/30/note-cordova-with-jquery-mobile/">[筆記] Cordova with jQuery Mobile &amp; Backbone的一些小問題</a></h1>
-  
-
-    <time datetime="2014-04-29T22:05:00.000Z">
-  <span class="day">30</span><span class="month">4月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>小弟這幾個月做前端的心得是：有些東西看起來很美好，睡到床上後才知道…（喂<br>下面筆記一下使用jQuery Mobile 1.4.2 + Backbone + Cordova 3.4開發中遇到的一些“小”問題</p>
-<h2 id="Cordova">Cordova</h2>
-<hr>
-<h4 id="Q:_為什麼我明明照官方Doc的說明放好icons了，build出來的app圖示還是那隻小機器人？">Q: 為什麼我明明照<a href="http://cordova.apache.org/docs/en/3.4.0/config_ref_images.md.html#Icons%20and%20Splash%20Screens" target="_blank" rel="external">官方Doc</a>的說明放好icons了，build出來的app圖示還是那隻小機器人？</h4>
-<p>A: 因為愛，愛一直都是沒有理由的…好吧，老實說我不知道這是新版的cordova bug還是有什麼地方出了問題，導致cordova add platform的時候生出來的icon永遠都是那隻小機器人。解法有二：一是自己在不同平台中替換，ios的位置放在<code>platforms\ios\{projectName}\Resoures\icons</code>裏面，也可以直接用xcode換（其實這樣比較快，省得取一堆檔名），在Basic settings裡面就找的到，應該不用截圖了XD。android的位置則是在<code>platforms\android\res\drawable-{dpi}</code>裡面，Eclipse裡面應該也有地方可以換，不過公司電腦開Eclips超慢所以我沒開過…。第二種方法是用別人寫好的hook幫你做上面那些事，例如<a href="https://gist.github.com/apla/6179863" target="_blank" rel="external">這個</a>。<br>不過，用上面第一種方法做替換的話，cordova重新建平台的時候又會洗回來一次(rm/add platform時，build不會)，所以並不是個很美好的解法，不過當你被死線追著跑的時候就先將就頂著吧…Orz</p>
-<h4 id="Q:_為什麼config-xml上的Orientation明明有設定portrait了，可是android上卻沒有用？">Q: 為什麼config.xml上的Orientation明明有設定portrait了，可是android上卻沒有用？</h4>
-<p>A: 根據stackoverflow上<a href="http://stackoverflow.com/questions/21212246/cordova-ignores-screen-orientation-lock" target="_blank" rel="external">這篇回答</a>的說法，這是個bug，不過他應該已經被fix掉了才對，那為什麼還會有問題呢？去檢查AndroidManifest.xml中的設定後，發現<code>android:screenOrientation</code>是<code>userPortrait</code>，兩者間的差別在於：</p>
-<blockquote>
-<p>If the user has locked sensor-based rotation, this behaves the same as portrait, otherwise it behaves the same as sensorPortrait.</p>
-</blockquote>
-<p>可是不對啊，我明明是下portrait，為什麼會變成userPortait？打開cordova裡面一隻叫做<code>android_parser.js</code>的檔案，會發現下面這段：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Set the orientation in the AndroidManifest</span></div><div class="line"><span class="keyword">var</span> orientationPref = <span class="keyword">this</span>.findOrientationPreference(config);</div><div class="line"><span class="keyword">if</span> (orientationPref) {</div><div class="line">	<span class="keyword">var</span> act = manifest.getroot().find(<span class="string">'./application/activity'</span>);</div><div class="line">	<span class="keyword">switch</span> (orientationPref) {</div><div class="line">		<span class="keyword">case</span> <span class="string">'default'</span>:</div><div class="line">			<span class="keyword">delete</span> act.attrib[<span class="string">"android:screenOrientation"</span>];</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">'portrait'</span>:</div><div class="line">			act.attrib[<span class="string">"android:screenOrientation"</span>] = <span class="string">'userPortrait'</span>;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">'landscape'</span>:</div><div class="line">			act.attrib[<span class="string">"android:screenOrientation"</span>] = <span class="string">'userLandscape'</span>;</div><div class="line">		}</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>簡單來說，就是cordova在build android時會把”portrait”轉成”userPortait”，”landspace”轉成”userLandspace”，不知道該說她貼心還是雞婆…<br>解法就是把上面的code稍微改一下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Set the orientation in the AndroidManifest</span></div><div class="line"><span class="keyword">var</span> orientationPref = <span class="keyword">this</span>.findOrientationPreference(config);</div><div class="line"><span class="keyword">if</span> (orientationPref) {</div><div class="line">	<span class="keyword">var</span> act = manifest.getroot().find(<span class="string">'./application/activity'</span>);</div><div class="line">	<span class="keyword">switch</span> (orientationPref) {</div><div class="line">		<span class="keyword">case</span> <span class="string">'default'</span>:</div><div class="line">			<span class="keyword">delete</span> act.attrib[<span class="string">"android:screenOrientation"</span>];</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">'portrait'</span>:</div><div class="line">			<span class="comment">// act.attrib["android:screenOrientation"] = 'userPortrait';</span></div><div class="line">			act.attrib[<span class="string">"android:screenOrientation"</span>] = <span class="string">'portrait'</span>;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">'landscape'</span>:</div><div class="line">			<span class="comment">// act.attrib["android:screenOrientation"] = 'userLandscape';</span></div><div class="line">			act.attrib[<span class="string">"android:screenOrientation"</span>] = <span class="string">'landscape'</span>;</div><div class="line">		}</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h4 id="Q:_在config-xml中設置中文的name會不會有問題？">Q: 在config.xml中設置中文的name會不會有問題？</h4>
-<p>A: 老實說，這問題很微妙，因為我在config.xml中設定app name為中文時，build android會發生問題，可是華文圈好像沒有相關災情傳出…如果跟我一樣碰到的話，就在發佈前去<code>platforms/android/res/values/string.xml</code>裡面改吧。</p>
-<h2 id="jQuery_Mobile">jQuery Mobile</h2>
-<hr>
-<h4 id="Q:_changepage的時候會抖一下，為什麼？">Q: changepage的時候會抖一下，為什麼？</h4>
-<p>A: 就跟你上廁所的時候會抖一下是一樣的道理（誤<br>這是很多人都會碰到的問題，不知道為什麼在transform的時候page的高會多出1px，結束後套上正常的min-height就產生了那一點點的抖動。解法有很多種，<a href="http://outof.me/fixing-flickers-jumps-of-jquery-mobile-transitions-in-phonegap-apps/" target="_blank" rel="external">這個</a>試過可以，不過會產生另一個問題就是ios會不能捲動page content，需要<a href="https://github.com/cubiq/iscroll" target="_blank" rel="external">iscroll.js</a>；後來發現johnbender<a href="https://github.com/jquery/jquery-mobile/issues/2846" target="_blank" rel="external">有解釋這個問題</a>，原因是jQuery mobile會預先向下scroll 1px來隱藏nav bar，解決方法就是在jQuery mobile引入後，還沒初始化頁面前設定$.mobile.defaultHomeScroll=0。</p>
-<blockquote>
-<p>寶傑，你知道嗎，這1px搞了我兩天…</p>
-</blockquote>
-<h4 id="Q:_changepage的時候會閃一下，為什麼？">Q: changepage的時候會閃一下，為什麼？</h4>
-<p>A: 首先，先確認不是你的眼睛在閃（無誤），畢竟幹這行可說是靠眼睛吃飯的，要好好保養啊…<br>如果眼睛沒問題的話，那就在page style上加個<code>backface-visibility: hidden</code>就可以了。</p>
-<h2 id="Backbone">Backbone</h2>
-<hr>
-<h4 id="Q:_touch_event會被觸發兩次，或是某些頁面的even時好時壞？">Q: touch event會被觸發兩次，或是某些頁面的even時好時壞？</h4>
-<p>A: 檢查有沒有發生”ghost view”的狀況，也就是某個（或某些）dom被綁了一個以上的view，這種事情常發生在動態新增view的時候。</p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-
-  <nav id="pagenavi">
-  
-  
   <div class="clearfix"></div>
 </nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2014/4</h2>
+
+
+  <div class="archive">
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-04-29T22:05:00.000Z"><a href="/2014/04/30/2014-04-30-note-cordova-with-jquery-mobile/">2014-04-30</a></time>
+            
+              <h1 class="title"><a href="/2014/04/30/2014-04-30-note-cordova-with-jquery-mobile/">[筆記] Cordova with jQuery Mobile &amp; Backbone的一些小問題</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+  </div>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:apolkingg8.github.io">
+  </form>
 </div>
-  <footer id="footer" class="inner"><div class="social alignright">
+
   
+<div class="widget tag">
+  <h3 class="title">分類</h3>
+  <ul class="entry">
   
+    <li><a href="/categories/Net/">.Net</a><small>1</small></li>
   
+    <li><a href="/categories/github/Octopress/">Octopress</a><small>1</small></li>
   
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+    <li><a href="/categories/閒聊/微軟/RWD/">RWD</a><small>1</small></li>
+  
+    <li><a href="/categories/github/">github</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/categories/logdown/">logdown</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/微軟/">微軟</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/Net/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/">閒聊</a><small>1</small></li>
+  
+    <li><a href="/categories/logdown/閒聊/">閒聊</a><small>1</small></li>
+  
+  </ul>
 </div>
-<p>
+
+
   
-  &copy; 2015 EijiHsu
+<div class="widget tag">
+  <h3 class="title">標籤</h3>
+  <ul class="entry">
   
-</p>
+    <li><a href="/tags/learning-es6/">learning, es6</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 John Doe
+  
+</div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
@@ -144,12 +155,5 @@
 })(jQuery);
 </script>
 
-
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
-</div>
-<script src="/js/phasebeam.js"></script>
 </body>
 </html>

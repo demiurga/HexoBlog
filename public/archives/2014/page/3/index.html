@@ -3,21 +3,34 @@
 <head>
   <meta charset="utf-8">
   
-  <title>第 3 頁 | 彙整：2014 | It&#39;s just works!</title>
-  <meta name="author" content="EijiHsu">
-
+  <title>第 3 頁 | 彙整：2014 | Hexo</title>
+  <meta name="author" content="John Doe">
   
   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
+
 </head>
 
+
 <body>
-  <header id="header" class="inner"><nav>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
   <ul>
     
       <li><a href="/">Home</a></li>
@@ -25,106 +38,110 @@
       <li><a href="/archives">Archives</a></li>
     
   </ul>
-</nav></header>
-  <div id="content" class="inner">
-
-<header id="archive-header">
-  <h1 class="alignleft">彙整：2014</h1>
-  <div class="search alignright">
-    <form action="http://google.com/search" method="get" accept-charset="utf-8">
-      <input type="search" name="q" results="0" placeholder="搜尋">
-      <input type="hidden" name="q" value="site:apolkingg8.github.io">
-    </form>
-  </div>
-</header>
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/01/01/notenet-npoi/">[筆記] .NET NPOI</a></h1>
-  
-
-    <time datetime="2014-01-01T07:08:00.000Z">
-  <span class="day">1</span><span class="month">1月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>每次要用都忘記用法，未老先衰阿…</p>
-<p>筆記一些重點</p>
-<ol>
-<li>usage: <code>NPOI</code>, <code>NPOI.HSSF.UserModel</code></li>
-<li>先取得FileStream </li>
-</ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FileStream fs = new FileStream(url, FileMode.<span class="keyword">Open</span>, FileAccess.<span class="keyword">Read</span>);</div></pre></td></tr></table></figure>
-
-<ol>
-<li>產生HSSFWorkBook </li>
-</ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">HSSFWorkbook workbook </span>=<span class="string"> new HSSFWorkbook(fs)</span></div></pre></td></tr></table></figure>
-
-<ol>
-<li>結構：Workbook -&gt; Sheets -&gt; Rows -&gt; Cell</li>
-<li>Cell不要直接<code>ToString()</code>，會拿到算式。有<code>NumericCellValue</code>之類的屬性可用</li>
-<li>NuGet拿到的是1.5版，XSSF是2.0版的東西，不過還在alpha，有很多問題。</li>
-<li>要注意很多政府機關文件的格式會錯誤，要開啟後再另存。</li>
-</ol>
-<p>小抱怨一下，某些政府機關的公開資料真的天殺的難找，還要從檔名逆推出文件格式編號再去猜相對應的路經…這是在玩國家寶藏嗎？</p>
-
-    
-    
-    <footer class="meta">
-      
-  <div class="cats">
-<a href="/categories/-Net/">.Net</a><a href="/categories/-Net/筆記/">筆記</a></div>
-
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-
-  <nav id="pagenavi">
-  
-    <a href="/archives/2014/page/2/" class="alignleft prev">上一頁</a>
-  
-  
   <div class="clearfix"></div>
 </nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2014</h2>
+
+
+  <div class="archive">
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-01-01T07:08:00.000Z"><a href="/2014/01/01/2014-01-01-notenet-npoi/">2014-01-01</a></time>
+            
+              <h1 class="title"><a href="/2014/01/01/2014-01-01-notenet-npoi/">[筆記] .NET NPOI</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+  </div>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:apolkingg8.github.io">
+  </form>
 </div>
-  <footer id="footer" class="inner"><div class="social alignright">
+
   
+<div class="widget tag">
+  <h3 class="title">分類</h3>
+  <ul class="entry">
   
+    <li><a href="/categories/Net/">.Net</a><small>1</small></li>
   
+    <li><a href="/categories/github/Octopress/">Octopress</a><small>1</small></li>
   
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+    <li><a href="/categories/閒聊/微軟/RWD/">RWD</a><small>1</small></li>
+  
+    <li><a href="/categories/github/">github</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/categories/logdown/">logdown</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/微軟/">微軟</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/Net/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/">閒聊</a><small>1</small></li>
+  
+    <li><a href="/categories/logdown/閒聊/">閒聊</a><small>1</small></li>
+  
+  </ul>
 </div>
-<p>
+
+
   
-  &copy; 2015 EijiHsu
+<div class="widget tag">
+  <h3 class="title">標籤</h3>
+  <ul class="entry">
   
-</p>
+    <li><a href="/tags/learning-es6/">learning, es6</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 John Doe
+  
+</div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
@@ -138,12 +155,5 @@
 })(jQuery);
 </script>
 
-
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
-</div>
-<script src="/js/phasebeam.js"></script>
 </body>
 </html>

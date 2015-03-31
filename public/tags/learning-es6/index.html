@@ -3,21 +3,34 @@
 <head>
   <meta charset="utf-8">
   
-  <title>learning, es6 | It&#39;s just works!</title>
-  <meta name="author" content="EijiHsu">
-
+  <title>learning, es6 | Hexo</title>
+  <meta name="author" content="John Doe">
   
   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
+
 </head>
 
+
 <body>
-  <header id="header" class="inner"><nav>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
   <ul>
     
       <li><a href="/">Home</a></li>
@@ -25,99 +38,110 @@
       <li><a href="/archives">Archives</a></li>
     
   </ul>
-</nav></header>
-  <div id="content" class="inner">
-
-<header id="archive-header">
-  <h1 class="alignleft">標籤：learning, es6</h1>
-  <div class="search alignright">
-    <form action="http://google.com/search" method="get" accept-charset="utf-8">
-      <input type="search" name="q" results="0" placeholder="搜尋">
-      <input type="hidden" name="q" value="site:apolkingg8.github.io">
-    </form>
-  </div>
-</header>
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2015/03/15/learn-es6-with-babel/">Learn es6 with babel - Arrows</a></h1>
-  
-
-    <time datetime="2015-03-15T14:02:01.000Z">
-  <span class="day">15</span><span class="month">3月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>在ES6中，可以使用<code>=&gt;</code>來定義function。這是一個很類似coffeescript的語法糖（事實上es6有很大一部分是語法糖，個人很喜歡這種做法，與其去改變語言的本質，不如讓語言順著原本的脈絡慢慢茁壯）</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line"><span class="keyword">var</span> f = (foo) =&gt; bar;</div><div class="line"></div><div class="line"><span class="comment">//babel</span></div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(foo)</span> </span>{</div><div class="line">  <span class="keyword">return</span> bar;</div><div class="line">};</div></pre></td></tr></table></figure>
-
-<p>當有參數，小括號可以省略</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line"><span class="keyword">var</span> f = foo =&gt; bar;</div><div class="line"></div><div class="line"><span class="comment">//babel</span></div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(foo)</span> </span>{</div><div class="line">  <span class="keyword">return</span> bar;</div><div class="line">};</div></pre></td></tr></table></figure>
-
-<p>當<code>return</code>不是單一Expression時，需要用大括號把它包起來，就像一般在寫<code>function</code>一樣</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line"><span class="keyword">var</span> foo = (v) =&gt; {</div><div class="line">  <span class="keyword">if</span> (v === bar)</div><div class="line">    play(v);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> <span class="params">(v)</span> </span>{</div><div class="line">  <span class="keyword">if</span> (v === bar) play(v);</div><div class="line">};</div></pre></td></tr></table></figure>
-
-<p>它可以讓code更加的簡短且語意化，例如用在callback上</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js</span></div><div class="line">foo(res =&gt; res + <span class="number">1</span>);</div><div class="line"></div><div class="line"><span class="comment">//babel</span></div><div class="line">foo(<span class="function"><span class="keyword">function</span> <span class="params">(res)</span> </span>{</div><div class="line">  <span class="keyword">return</span> res + <span class="number">1</span>;</div><div class="line">});</div></pre></td></tr></table></figure>
-
-<p>有種lambda的感覺，對吧？<br>要注意的是，如同在coffeescript中一樣，fat arrow(<code>=&gt;</code>)除了是function的縮寫之外，還具有<strong>在定義時綁定<code>this</code></strong>的特性</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js</span></div><div class="line"><span class="keyword">var</span> john = {</div><div class="line">  _name: <span class="string">"John"</span>,</div><div class="line">  _friends: [<span class="string">'Mary'</span>],</div><div class="line">  printFriends: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">this</span>._friends.forEach(friendName =&gt;</div><div class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>._name + <span class="string">" knows "</span> + friendName));</div><div class="line">      <span class="comment">//因為上面使用fat arrow的關係, this才會被綁定為"定義時的this"</span></div><div class="line">  }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">//babel</span></div><div class="line"><span class="keyword">var</span> john = {</div><div class="line">  _name: <span class="string">"John"</span>,</div><div class="line">  _friends: [<span class="string">"Mary"</span>],</div><div class="line">  printFriends: <span class="function"><span class="keyword">function</span> <span class="title">printFriends</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>;</div><div class="line">    <span class="comment">//實現方式其實就是我們常在寫的that = this</span></div><div class="line"></div><div class="line">    <span class="keyword">this</span>._friends.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(friendName)</span> </span>{</div><div class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.log(_this._name + <span class="string">" knows "</span> + friendName);</div><div class="line">    });</div><div class="line">  }</div><div class="line">};</div><div class="line"></div><div class="line">john.printFriends()</div><div class="line"><span class="comment">// &lt;= John knows Mary</span></div><div class="line"></div><div class="line"><span class="comment">//-- 使用function的版本</span></div><div class="line"></div><div class="line"><span class="comment">//js</span></div><div class="line"><span class="keyword">var</span> john = {</div><div class="line">  _name: <span class="string">"John"</span>,</div><div class="line">  _friends: [<span class="string">'Mary'</span>],</div><div class="line">  printFriends: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">this</span>._friends.forEach(<span class="function"><span class="keyword">function</span><span class="params">(friendName)</span></span>{</div><div class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>._name + <span class="string">" knows "</span> + friendName)</div><div class="line">      <span class="comment">//這裡使用的是function，this會在呼叫時才決定要指向誰</span></div><div class="line">    });</div><div class="line">  }</div><div class="line">}</div><div class="line"></div><div class="line">john.printFriends()</div><div class="line"><span class="comment">// if es5 &lt;= undefined knows Mary</span></div><div class="line"><span class="comment">// if es6 &lt;= Cannot read property '_name' of undefined</span></div><div class="line"><span class="comment">// 在es5中，當this指向全域時會得到window，但在es6會得到undefined</span></div></pre></td></tr></table></figure>
-
-
-    
-    
-    <footer class="meta">
-      
-      
-  <div class="tags">
-<a href="/tags/learning-es6/">learning, es6</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-
-  <nav id="pagenavi">
-  
-  
   <div class="clearfix"></div>
 </nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">learning, es6</h2>
+
+
+  <div class="archive">
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2015-03-15T14:02:01.000Z"><a href="/2015/03/15/2015-03-15-learn-es6-with-babel/">2015-03-15</a></time>
+            
+              <h1 class="title"><a href="/2015/03/15/2015-03-15-learn-es6-with-babel/">Learn es6 with babel - Arrows</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+  </div>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:apolkingg8.github.io">
+  </form>
 </div>
-  <footer id="footer" class="inner"><div class="social alignright">
+
   
+<div class="widget tag">
+  <h3 class="title">分類</h3>
+  <ul class="entry">
   
+    <li><a href="/categories/Net/">.Net</a><small>1</small></li>
   
+    <li><a href="/categories/github/Octopress/">Octopress</a><small>1</small></li>
   
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+    <li><a href="/categories/閒聊/微軟/RWD/">RWD</a><small>1</small></li>
+  
+    <li><a href="/categories/github/">github</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/categories/logdown/">logdown</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/微軟/">微軟</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/Net/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/">閒聊</a><small>1</small></li>
+  
+    <li><a href="/categories/logdown/閒聊/">閒聊</a><small>1</small></li>
+  
+  </ul>
 </div>
-<p>
+
+
   
-  &copy; 2015 EijiHsu
+<div class="widget tag">
+  <h3 class="title">標籤</h3>
+  <ul class="entry">
   
-</p>
+    <li><a href="/tags/learning-es6/">learning, es6</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 John Doe
+  
+</div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
@@ -131,12 +155,5 @@
 })(jQuery);
 </script>
 
-
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
-</div>
-<script src="/js/phasebeam.js"></script>
 </body>
 </html>

@@ -3,21 +3,34 @@
 <head>
   <meta charset="utf-8">
   
-  <title>彙整 | It&#39;s just works!</title>
-  <meta name="author" content="EijiHsu">
-
+  <title>彙整 | Hexo</title>
+  <meta name="author" content="John Doe">
   
   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <link rel="alternate" href="/atom.xml" title="It&#39;s just works!" type="application/atom+xml">
+  
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
+
 </head>
 
+
 <body>
-  <header id="header" class="inner"><nav>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
   <ul>
     
       <li><a href="/">Home</a></li>
@@ -25,574 +38,218 @@
       <li><a href="/archives">Archives</a></li>
     
   </ul>
-</nav></header>
-  <div id="content" class="inner">
-
-<header id="archive-header">
-  <h1 class="alignleft">彙整</h1>
-  <div class="search alignright">
-    <form action="http://google.com/search" method="get" accept-charset="utf-8">
-      <input type="search" name="q" results="0" placeholder="搜尋">
-      <input type="hidden" name="q" value="site:apolkingg8.github.io">
-    </form>
-  </div>
-</header>
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2015/03/20/learning-es6-with-babel-const/">learning es6 with babel - const</a></h1>
-  
-
-    <time datetime="2015-03-20T15:29:12.000Z">
-  <span class="day">20</span><span class="month">3月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p><code>const</code>用來聲明常量，也就是該變數的值在聲明後不會再改變，跟<code>let</code>一樣有block scope，沒有<br>hoisting</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line"><span class="keyword">const</span> PI = <span class="number">3.14159</span>;</div><div class="line"><span class="comment">// 按照js的naming rule, 常量應該全部大寫</span></div><div class="line"><span class="built_in">console</span>.log(PI); <span class="comment">// &lt;= 3.14159</span></div><div class="line"></div><div class="line">PI = <span class="number">3</span>;</div><div class="line"><span class="built_in">console</span>.log(PI); <span class="comment">// &lt;= 3.14159</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> PI = <span class="number">3</span>;</div><div class="line"><span class="built_in">console</span>.log(PI); <span class="comment">// &lt;= 3.14159</span></div></pre></td></tr></table></figure>
-
-<p>babel會在compile階段就檢查<code>PI</code>是不是在宣告後有試圖去改變他，所以上面這段會出現Error</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">repl: Line <span class="number">6</span>: <span class="string">"PI"</span> is read-only</div><div class="line">  <span class="number">4</span> <span class="string">| console.log(PI); // &lt;= 3.14159</span></div><div class="line">  <span class="number">5</span> <span class="string">|</span></div><div class="line">&gt; <span class="number">6</span> <span class="string">| PI = 3;</span></div><div class="line">    <span class="string">| ^</span></div><div class="line">  <span class="number">7</span> <span class="string">| console.log(PI); // &lt;= 3.14159</span></div><div class="line">  <span class="number">8</span> <span class="string">|</span></div><div class="line">  <span class="number">9</span> <span class="string">|</span></div></pre></td></tr></table></figure>
-
-<p>由於常量的特性是在compile階段檢查的，所以babel對於<code>const</code>其餘特性(block scope,<br>  no hoising)的實現方式就跟<code>let</code>一樣</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line">{</div><div class="line">  <span class="keyword">const</span> PI = <span class="number">3.14159</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">//babel</span></div><div class="line"><span class="pi">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> _temporalAssertDefined = <span class="function"><span class="keyword">function</span> <span class="params">(val, name, undef)</span> </span>{</div><div class="line">  <span class="keyword">if</span> (val === undef) {</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">ReferenceError</span>(name + <span class="string">" is not defined - temporal dead zone"</span>);</div><div class="line">  }</div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> _temporalUndefined = {};</div><div class="line">{</div><div class="line">  <span class="keyword">var</span> PI = _temporalUndefined;</div><div class="line">  PI = <span class="number">3.14159</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>要注意的是<code>const</code>不等於<code>Object.freeze()</code>：<code>const</code>是固定變數的參考，<code>Object.freeze()</code><br>則是固定變數參考對象的值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> foo = {};</div><div class="line"></div><div class="line">foo.prop = <span class="number">123</span>;</div><div class="line"><span class="built_in">console</span>.log(foo.prop); <span class="comment">// &lt;= 123</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> bar = {};</div><div class="line"><span class="built_in">Object</span>.freeze(bar);</div><div class="line"></div><div class="line">bar.prop = <span class="number">123</span>;</div><div class="line"><span class="built_in">console</span>.log(bar.prop); <span class="comment">// &lt;= undefined</span></div></pre></td></tr></table></figure>
-
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2015/03/20/learning-es6-with-babel-let/">learning es6 with babel - let</a></h1>
-  
-
-    <time datetime="2015-03-20T15:29:00.000Z">
-  <span class="day">20</span><span class="month">3月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p><code>let</code>是另一種宣告變數的方式，他有幾個特點：有block scope，沒有hoisting，不能重複宣告</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line">{</div><div class="line">  <span class="keyword">let</span> foo = <span class="string">"foo"</span>;</div><div class="line">  <span class="keyword">var</span> bar = <span class="string">"bar"</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//&lt;= Error: foo is not defined</span></div><div class="line"><span class="built_in">console</span>.log(bar); <span class="comment">//&lt;= bar</span></div></pre></td></tr></table></figure>
-
-<p>babel對他的實現方式是在前面加個prefix<code>_</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//babel</span></div><div class="line"><span class="keyword">var</span> _temporalUndefined = {};</div><div class="line">{</div><div class="line">  <span class="keyword">var</span> _foo = _temporalUndefined;</div><div class="line">  _foo = <span class="string">"foo"</span>;</div><div class="line">  <span class="keyword">var</span> bar = <span class="string">"bar"</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p><code>let</code>不像<code>var</code>一樣具有hoisting的特性，這造成一些現象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line">{</div><div class="line">  <span class="built_in">console</span>.log(x); <span class="comment">// &lt;=x is not defined - temporal dead zone</span></div><div class="line">  <span class="keyword">let</span> x = <span class="number">1</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>在一個block scope中，只要有進行<code>let</code>宣告的變數，那麼該變數在被宣告前都不能被使用。<br>這個區塊就被稱為temporal dead zone</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line">{</div><div class="line">  <span class="comment">//-- dead zone for x start --</span></div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(x); <span class="comment">// &lt;=ReferenceError: x is not defined - temporal dead zone</span></div><div class="line"></div><div class="line">  <span class="comment">//-- dead zone for x end --</span></div><div class="line">  <span class="keyword">let</span> x = <span class="number">1</span>;</div><div class="line">  <span class="comment">// u can use x now.</span></div><div class="line">  <span class="built_in">console</span>.log(x); <span class="comment">// &lt;= 1</span></div><div class="line"></div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>babel的實現方式如下</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="pi">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> _temporalAssertDefined = <span class="function"><span class="keyword">function</span> <span class="params">(val, name, undef)</span> </span>{</div><div class="line">  <span class="keyword">if</span> (val === undef) {</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">ReferenceError</span>(name + <span class="string">" is not defined - temporal dead zone"</span>);</div><div class="line">  }</div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> _temporalUndefined = {};</div><div class="line">{</div><div class="line">  <span class="keyword">var</span> x = _temporalUndefined;</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(_temporalAssertDefined(x, <span class="string">"x"</span>, _temporalUndefined) && x);</div><div class="line"></div><div class="line">  x = {};</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(_temporalAssertDefined(x, <span class="string">"x"</span>, _temporalUndefined) && x);</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>他一開始先在全域宣告一個<code>_temporalUndefined</code>物件作為not defined flag，當我們在block scope中做<code>let</code>宣告時，<br>他會先在scope的開始部分就先用<code>var</code>宣告物件，然後指向全域的<code>_temporalUndefined</code>物件。接下來<br>在每次調用<code>x</code>時，都會先檢查他的參考對象是不是<code>_temporalUndefined</code>，如果是的話就拋出<br><code>ReferenceError</code></p>
-<p>可以注意的點是，<code>val === undef</code>比較的是參照，而不是值，所以就算你用<code>let x={}</code>也不會怎樣，<br>因為這兩個<code>{}</code>是不同的匿名物件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line">{</div><div class="line">  <span class="built_in">console</span>.log(x); <span class="comment">// &lt;=ReferenceError: x is not defined - temporal dead zone</span></div><div class="line">  <span class="keyword">let</span> x = <span class="number">1</span>;</div><div class="line">  <span class="built_in">console</span>.log(x);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">//babel</span></div><div class="line"><span class="pi">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> _temporalAssertDefined = <span class="function"><span class="keyword">function</span> <span class="params">(val, name, undef)</span> </span>{</div><div class="line">  <span class="keyword">if</span> (val === undef) {</div><div class="line">    <span class="comment">// 這裡是檢查參照，而不是值</span></div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">ReferenceError</span>(name + <span class="string">" is not defined - temporal dead zone"</span>);</div><div class="line">  }</div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">//宣告一個匿名物件，指定物件_temporalUndefined參照他</span></div><div class="line"><span class="keyword">var</span> _temporalUndefined = {};</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="keyword">var</span> x = _temporalUndefined;</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(_temporalAssertDefined(x, <span class="string">"x"</span>, _temporalUndefined) && x);</div><div class="line">  <span class="comment">//宣告一個匿名物件，指定物件x參照他。酸然值相同，但這跟上面那個匿名物件完全無關</span></div><div class="line">  x = {};</div><div class="line">  <span class="built_in">console</span>.log(_temporalAssertDefined(x, <span class="string">"x"</span>, _temporalUndefined) && x);</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>當撞名時babel會自動改名，不必擔心</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line"><span class="keyword">var</span> _temporalUndefined;</div><div class="line">{</div><div class="line">  <span class="keyword">let</span> x = {};</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">//babel</span></div><div class="line"><span class="pi">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> _temporalAssertDefined = <span class="function"><span class="keyword">function</span> <span class="params">(val, name, undef)</span> </span>{ <span class="keyword">if</span> (val === undef) { <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">ReferenceError</span>(name + <span class="string">" is not defined - temporal dead zone"</span>); } <span class="keyword">return</span> <span class="literal">true</span>; };</div><div class="line"></div><div class="line"><span class="keyword">var</span> _temporalUndefined2 = {}; <span class="comment">//變成_temporalUndefined2了</span></div><div class="line"><span class="keyword">var</span> _temporalUndefined;</div><div class="line">{</div><div class="line">  <span class="keyword">var</span> x = _temporalUndefined2;</div><div class="line">  x = {};</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>“不能重複宣告”這項特性則是在babel compile階段做檢查的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line">{</div><div class="line">  <span class="keyword">let</span> x = <span class="number">1</span>;</div><div class="line">  <span class="keyword">let</span> x = <span class="number">2</span>;</div><div class="line">}</div><div class="line"><span class="comment">/* babel compile err</span></div><div class="line">repl: Line 3: Duplicate declaration "x"</div><div class="line">  1 | {</div><div class="line">  2 |   let x = 1;</div><div class="line">&gt; 3 |   let x = 2;</div><div class="line">    |       ^</div><div class="line">  4 | }</div><div class="line">*/</div></pre></td></tr></table></figure>
-
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2015/03/15/learn-es6-with-babel/">Learn es6 with babel - Arrows</a></h1>
-  
-
-    <time datetime="2015-03-15T14:02:01.000Z">
-  <span class="day">15</span><span class="month">3月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>在ES6中，可以使用<code>=&gt;</code>來定義function。這是一個很類似coffeescript的語法糖（事實上es6有很大一部分是語法糖，個人很喜歡這種做法，與其去改變語言的本質，不如讓語言順著原本的脈絡慢慢茁壯）</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line"><span class="keyword">var</span> f = (foo) =&gt; bar;</div><div class="line"></div><div class="line"><span class="comment">//babel</span></div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(foo)</span> </span>{</div><div class="line">  <span class="keyword">return</span> bar;</div><div class="line">};</div></pre></td></tr></table></figure>
-
-<p>當有參數，小括號可以省略</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line"><span class="keyword">var</span> f = foo =&gt; bar;</div><div class="line"></div><div class="line"><span class="comment">//babel</span></div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(foo)</span> </span>{</div><div class="line">  <span class="keyword">return</span> bar;</div><div class="line">};</div></pre></td></tr></table></figure>
-
-<p>當<code>return</code>不是單一Expression時，需要用大括號把它包起來，就像一般在寫<code>function</code>一樣</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line"><span class="keyword">var</span> foo = (v) =&gt; {</div><div class="line">  <span class="keyword">if</span> (v === bar)</div><div class="line">    play(v);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> <span class="params">(v)</span> </span>{</div><div class="line">  <span class="keyword">if</span> (v === bar) play(v);</div><div class="line">};</div></pre></td></tr></table></figure>
-
-<p>它可以讓code更加的簡短且語意化，例如用在callback上</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js</span></div><div class="line">foo(res =&gt; res + <span class="number">1</span>);</div><div class="line"></div><div class="line"><span class="comment">//babel</span></div><div class="line">foo(<span class="function"><span class="keyword">function</span> <span class="params">(res)</span> </span>{</div><div class="line">  <span class="keyword">return</span> res + <span class="number">1</span>;</div><div class="line">});</div></pre></td></tr></table></figure>
-
-<p>有種lambda的感覺，對吧？<br>要注意的是，如同在coffeescript中一樣，fat arrow(<code>=&gt;</code>)除了是function的縮寫之外，還具有<strong>在定義時綁定<code>this</code></strong>的特性</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js</span></div><div class="line"><span class="keyword">var</span> john = {</div><div class="line">  _name: <span class="string">"John"</span>,</div><div class="line">  _friends: [<span class="string">'Mary'</span>],</div><div class="line">  printFriends: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">this</span>._friends.forEach(friendName =&gt;</div><div class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>._name + <span class="string">" knows "</span> + friendName));</div><div class="line">      <span class="comment">//因為上面使用fat arrow的關係, this才會被綁定為"定義時的this"</span></div><div class="line">  }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">//babel</span></div><div class="line"><span class="keyword">var</span> john = {</div><div class="line">  _name: <span class="string">"John"</span>,</div><div class="line">  _friends: [<span class="string">"Mary"</span>],</div><div class="line">  printFriends: <span class="function"><span class="keyword">function</span> <span class="title">printFriends</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>;</div><div class="line">    <span class="comment">//實現方式其實就是我們常在寫的that = this</span></div><div class="line"></div><div class="line">    <span class="keyword">this</span>._friends.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(friendName)</span> </span>{</div><div class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.log(_this._name + <span class="string">" knows "</span> + friendName);</div><div class="line">    });</div><div class="line">  }</div><div class="line">};</div><div class="line"></div><div class="line">john.printFriends()</div><div class="line"><span class="comment">// &lt;= John knows Mary</span></div><div class="line"></div><div class="line"><span class="comment">//-- 使用function的版本</span></div><div class="line"></div><div class="line"><span class="comment">//js</span></div><div class="line"><span class="keyword">var</span> john = {</div><div class="line">  _name: <span class="string">"John"</span>,</div><div class="line">  _friends: [<span class="string">'Mary'</span>],</div><div class="line">  printFriends: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">this</span>._friends.forEach(<span class="function"><span class="keyword">function</span><span class="params">(friendName)</span></span>{</div><div class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>._name + <span class="string">" knows "</span> + friendName)</div><div class="line">      <span class="comment">//這裡使用的是function，this會在呼叫時才決定要指向誰</span></div><div class="line">    });</div><div class="line">  }</div><div class="line">}</div><div class="line"></div><div class="line">john.printFriends()</div><div class="line"><span class="comment">// if es5 &lt;= undefined knows Mary</span></div><div class="line"><span class="comment">// if es6 &lt;= Cannot read property '_name' of undefined</span></div><div class="line"><span class="comment">// 在es5中，當this指向全域時會得到window，但在es6會得到undefined</span></div></pre></td></tr></table></figure>
-
-
-    
-    
-    <footer class="meta">
-      
-      
-  <div class="tags">
-<a href="/tags/learning-es6/">learning, es6</a></div>
-
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2015/02/26/move-from-logdown-to-hexo/">從logdown到hexo</a></h1>
-  
-
-    <time datetime="2015-02-26T15:32:23.000Z">
-  <span class="day">26</span><span class="month">2月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>因為很多很多的因素，這半年有點低潮<br>logdown沒寫半篇文章，社群聚會完全沒參加，github也是一片荒涼…<br>不過新年假期多少恢復了一點元氣；換個新家，換個心情，重新出發!</p>
-<p>話說…我好像換了很多次新家了<br>blogger =&gt; octopress =&gt; jeklly =&gt; logdown =&gt; hexo<br>每次裝潢完沒多久又看到新玩具，然後就…(汗<br>希望這次hexo能撐得久一點:P</p>
-<p>最近這幾天應該會上點style，然後把舊文章修一修<br>順便複習一下markdown語法…還有中文的語法XD</p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/05/29/experience-debug-cordova-app-with-android-44-and-chrome/">[心得] Debug Cordova app with Android 4.4 and Chrome</a></h1>
-  
-
-    <time datetime="2014-05-28T19:43:00.000Z">
-  <span class="day">29</span><span class="month">5月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>在Android 4.4，有新的方式可以用Chrome debug Android 上面的 WebView<br>方法超簡單（以下以cordova app當範例）：</p>
-<ol>
-<li>確定你有Chrome 30+, Android 4.4, 還有一個嗷嗷待哺的cordova app</li>
-<li>用USB把他們連起來，選項該的開該打勾的打勾，就跟平常一樣</li>
-<li>在你的cordova app的<code>onDeviceReady</code>事件加上這段<pre><code> <span class="keyword">if</span>(Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {
-     <span class="keyword">if</span> ( <span class="number">0</span> != ( getApplcationInfo().flags &amp;= ApplicationInfo.FLAG_DEBUGGABLE ) ) {
-         WebView.setWebContentsDebuggingEnabled(<span class="literal">true</span>);
-     }
- }
-</code></pre></li>
-<li>切到chrome的<code>chrome://inspect/#devices</code>頁面</li>
-<li>勾選Discover USB Devices，應該會看到你的安拙在上面，接著開啟你的cordova app</li>
-<li>現在應該會列出你的app開啟的WebView(通常只有一個)，點下inspect，熟悉的ChromeDevTool就出現了！</li>
-</ol>
-<p>感覺就跟Safari的web inspecter一樣</p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/05/26/note-cordova-trouble-shooting/">[筆記] Cordova trouble shooting</a></h1>
-  
-
-    <time datetime="2014-05-25T17:29:00.000Z">
-  <span class="day">26</span><span class="month">5月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <h2 id="開發環境：">開發環境：</h2>
-<p>Editor: WebStorm 7 with Cordova CLI<br>SDK: Cordova 3.4.0 / 3.5.0, Xcode 5.1.1, ADT 22.3.0<br>OS: Mac OSX 10.9.2<br>Device: iPhone 4S(iOS 7), Butterfly(Android 4.4), Samsung S3(Android 4.3), Samsung Note 2(Android 4.3)</p>
-<p>雖然寫這篇文的時間點，官網上的stable版本依然是3.4.1，不過npm上已經有3.5.0了。個人建議可以直接昇到3.5.0，因為有些bug已經在這版解決了，省得你自己去做solution。</p>
-<hr>
-<h2 id="1-_Camera在android一直出現Class_not_defind，可是在iOS卻好好的，而且我確定該死的config-xml沒有寫錯，這哪招？">1. Camera在android一直出現<code>Class not defind</code>，可是在iOS卻好好的，而且我確定該死的config.xml沒有寫錯，這哪招？</h2>
-<p>A: 先用<code>cordova plugin ls</code>檢查一下你的camera plugun叫什麼名字。如果是<code>com.apache.cordova.camera</code>的話，接著檢查你的config.xml…我是說<code>android/res/xml</code>裡面那隻，看看camera那段，應該是要長這樣：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">feature</span> <span class="attribute">name</span>=<span class="value">"Camera"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"android-package"</span> <span class="attribute">value</span>=<span class="value">"org.apache.cordova.camera.CameraLauncher"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">feature</span>&gt;</span></div></pre></td></tr></table></figure>
-
-<p>注意，是<code>org.apache.cordova.camera.CameraLauncher</code>，不是<code>org.apache.cordova.CameraLauncher</code>。如果你出現的是後者，回到通用的那隻config.xml，把<code>&lt;feature name=&quot;Camera&quot;&gt;</code>整個區塊刪掉，重新rm/add plarform一次。</p>
-<h2 id="2-_在android_4-4，使用camera-getPicture()方法抓取檔案中的圖片，發生一些奇怪的事：同一張圖片從不同路徑進去點選，有些路徑抓的到（例：相簿），有些路徑卻抓不到（例：最近使用的檔案），why?">2. 在android 4.4，使用<code>camera.getPicture()</code>方法抓取檔案中的圖片，發生一些奇怪的事：同一張圖片從不同路徑進去點選，有些路徑抓的到（例：相簿），有些路徑卻抓不到（例：最近使用的檔案），why?</h2>
-<p>A: 這是android 4.4的新改變造成的，詳情可以看這篇issue：<a href="https://issues.apache.org/jira/browse/CB-5398" target="_blank" rel="external">Pick image from Library or Photo album on android 4.4</a>，簡單來說就是uri的形式改變了。解決方法有兩種，一種是去改CameraLauncher.java，自己加入kitkat的hack；另外一種是把cordova昇到3.5.0版。對懶人小弟我來說，選哪種很明顯了…XD</p>
-<h2 id="3-_為什麼我build_android的時候，platforms/android/assets/www底下的檔案常常沒有被更新？">3. 為什麼我build android的時候，<code>platforms/android/assets/www</code>底下的檔案常常沒有被更新？</h2>
-<p>A: 之前曾經被這個問題搞到很頭大，連<code>cordova platform rm/add</code>之後都一樣，後來發現似乎是WebStorm的問題…。WebStorm的自動儲存機制好像是先寫到cache中，等累計一部份或是超過一定時間後再寫入disk的實體檔案裡，因此如果改完之後馬上進行build，會讀到尚未被寫入的資料。解決方法是變更後加個ctrl + s(save all)就可以了，不過上面那段原因純屬個人猜測，有錯的話煩請指正。</p>
-<h2 id="4-_為什麼用camera拿到的圖片沒有EXIF?">4. 為什麼用camera拿到的圖片沒有EXIF?</h2>
-<p>A: <code>targetWidth</code>跟<code>targetHeight</code>屬性會把EXIF資訊消掉。</p>
-<h2 id="5-_他媽的為什麼Samsung拍出來的圖片總是不會自動轉正，我明明有下correctOrientation:_true了啊！？">5. 他媽的為什麼Samsung拍出來的圖片總是不會自動轉正，我明明有下<code>correctOrientation: true</code>了啊！？</h2>
-<p>A: 就叫你愛用國貨（誤。這是另一個讓我很頭大的問題，如果你用<code>saveToPhotoAlbum</code>儲存的話，會發生一些很奇妙的事：在相簿中瀏覽的縮圖是轉過的，可是點進去之後的圖片又是沒轉正的；目前是到的解法是自己把暫存copy一份出來存在另外的資料夾裡，這樣在手機相簿裡縮圖和內容點進去就都會是正的（不過app裡面的img還是要自己下css rotate轉）。當你拉到電腦上用一些可以截取EXIF的軟體看，會發現它其實還是沒轉過的，只是大多數的圖片顯示程式都會去讀EXIF裡面的Orientiation然後自動把它轉正，不過也有另外一種做法，例如HTC跟iphone都是直接給你轉正後的檔案。</p>
-<h2 id="6-_iOS傳檔案的時候拿到transferFileError_Code:3?">6. iOS傳檔案的時候拿到transferFileError Code:3?</h2>
-<p>A: 原因很多，通常code3會伴隨500 Error出現，這時候就要問server端到底發生什麼事了。我遇到的狀況是使用預設的fileTransferOption會傳出不帶副檔名的檔案，如果server端是從檔案名稱截取副檔名來判斷類型的話就會出錯，只要不要偷懶自己設定fileTransferOption就OK了。</p>
-<h2 id="7-_在Android_4-4，從”最近使用過的檔案”之類4-4新增的資料夾選取的檔案，上傳時fileTransfer會拿到null?">7. 在Android 4.4，從”最近使用過的檔案”之類4.4新增的資料夾選取的檔案，上傳時fileTransfer會拿到null?</h2>
-<p>A: 原因同Q2，plugin不認識這些4.4新增的路徑，靜待fileTransfer plugin更新，或是跟Q2那篇一樣自己在java檔加入kitkat的hack。</p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/05/17/note-cordova-34-with-wp8-minesweeper-records/">[筆記] Cordova 3.4 with WP8 踩地雷紀錄</a></h1>
-  
-
-    <time datetime="2014-05-16T21:52:00.000Z">
-  <span class="day">17</span><span class="month">5月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>這整個過程讓我想到WOW裡的一個成就： <strong>［這真是段漫長又奇妙的旅程］</strong><br>不過漫長奇妙之外還多了很多的痛苦就是了…ORZ</p>
-<h3 id="1-_cordova_platform_add_wp8時出現亂碼錯誤">1. <code>cordova platform add wp8</code>時出現亂碼錯誤</h3>
-<p>…亂碼是要我怎麼debug阿大哥…<br>不過還好下面有stack，可以看到問題出在<code>wp8_parser.js</code>這隻裡面的這段：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">child_process.exec(command, <span class="function"><span class="keyword">function</span><span class="params">(err, output, stderr)</span> </span>{</div><div class="line">  events.emit(<span class="string">'verbose'</span>, output);</div><div class="line">  <span class="keyword">if</span> (err) {</div><div class="line">  	d.reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Requirements check failed: '</span> + output + stderr));</div><div class="line">  } <span class="keyword">else</span> {</div><div class="line">  	d.resolve();</div><div class="line">	}</div><div class="line">});</div></pre></td></tr></table></figure>
-
-<p>恩，還是沒有頭緒，試著把err catch註解掉，會得到另一個error<code>副檔名 .js 沒有對應的 script 引擎</code><br>於是按照google大神的指示，裝了Windows Scrip，然後再把原本的err catch加回去…就可以了。</p>
-<blockquote>
-<p>老實說小弟才疏學淺完全不知道發生了什麼事…懇請前輩們指點</p>
-</blockquote>
-<h3 id="2-_cordova_platform_add_wp8成功，但是在CREAT_SUCCESS之後，要加入plugin時發生錯誤Non-white_space_before_first_tag">2. <code>cordova platform add wp8</code>成功，但是在CREAT SUCCESS之後，要加入plugin時發生錯誤<code>Non-white space before first tag</code></h3>
-<p>原因出在<code>\platforms\wp8\CordovaWP8AppProj.csproj</code>跟<code>\platforms\wp8\Properties\WMAppManifest.xml</code>這兩隻檔案一開始的宣告出現亂碼。<br>這是個尚未被解決的Bug，可以參考<a href="https://issues.apache.org/jira/browse/CB-6301" target="_blank" rel="external">這篇</a><br>雖然提出者的環境是簡體中文，但是最底下的解法在繁中的環境下依然有效：</p>
-<blockquote>
-<p>wei jiang added a comment - 09/Apr/14 14:26<br>I have found a solution for this issue:<br>1、open C:\Users.cordova\lib\wp\cordova\3.4.0\wp8\bin\create.js<br>line 68:<br>change<br>‘var f=fso.OpenTextFile(filename,1,2);’<br>to<br>‘var f=fso.OpenTextFile(filename,ForReading,false,TristateFalse);’<br>line 75:<br>change<br>‘var f=fso.OpenTextFile(filename, ForWriting, TristateFalse);’<br>to<br>‘var f=fso.OpenTextFile(filename, ForWriting,true, TristateFalse);’<br>2、Change the encoding of these files to ‘UTF-8 without BOM’<br>in C:\Users.cordova\lib\wp\cordova\3.4.0\wp8\template<br>App.xaml<br>App.xaml.cs<br>CordovaWP8AppProj.csproj<br>CordovaWP8Solution.sln<br>MainPage.xaml.cs<br>Properties\WMAppManifest.xml<br>ps:I did this using Notepad++</p>
-</blockquote>
-<p>另外，<a href="http://my.oschina.net/arrowing/blog/181476#OSC_h2_14" target="_blank" rel="external">這篇</a>也有另一種做法，不過可能是系統語言不同的關係，我用這種作法會沒辦法正確的parse xml。</p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/05/12/teaching-yql-for-ten-minutes-easy/">[教學] YQL十分鐘簡單上手</a></h1>
-  
-
-    <time datetime="2014-05-11T22:53:00.000Z">
-  <span class="day">12</span><span class="month">5月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/04/30/note-cordova-with-jquery-mobile/">[筆記] Cordova with jQuery Mobile &amp; Backbone的一些小問題</a></h1>
-  
-
-    <time datetime="2014-04-29T22:05:00.000Z">
-  <span class="day">30</span><span class="month">4月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      <p>小弟這幾個月做前端的心得是：有些東西看起來很美好，睡到床上後才知道…（喂<br>下面筆記一下使用jQuery Mobile 1.4.2 + Backbone + Cordova 3.4開發中遇到的一些“小”問題</p>
-<h2 id="Cordova">Cordova</h2>
-<hr>
-<h4 id="Q:_為什麼我明明照官方Doc的說明放好icons了，build出來的app圖示還是那隻小機器人？">Q: 為什麼我明明照<a href="http://cordova.apache.org/docs/en/3.4.0/config_ref_images.md.html#Icons%20and%20Splash%20Screens" target="_blank" rel="external">官方Doc</a>的說明放好icons了，build出來的app圖示還是那隻小機器人？</h4>
-<p>A: 因為愛，愛一直都是沒有理由的…好吧，老實說我不知道這是新版的cordova bug還是有什麼地方出了問題，導致cordova add platform的時候生出來的icon永遠都是那隻小機器人。解法有二：一是自己在不同平台中替換，ios的位置放在<code>platforms\ios\{projectName}\Resoures\icons</code>裏面，也可以直接用xcode換（其實這樣比較快，省得取一堆檔名），在Basic settings裡面就找的到，應該不用截圖了XD。android的位置則是在<code>platforms\android\res\drawable-{dpi}</code>裡面，Eclipse裡面應該也有地方可以換，不過公司電腦開Eclips超慢所以我沒開過…。第二種方法是用別人寫好的hook幫你做上面那些事，例如<a href="https://gist.github.com/apla/6179863" target="_blank" rel="external">這個</a>。<br>不過，用上面第一種方法做替換的話，cordova重新建平台的時候又會洗回來一次(rm/add platform時，build不會)，所以並不是個很美好的解法，不過當你被死線追著跑的時候就先將就頂著吧…Orz</p>
-<h4 id="Q:_為什麼config-xml上的Orientation明明有設定portrait了，可是android上卻沒有用？">Q: 為什麼config.xml上的Orientation明明有設定portrait了，可是android上卻沒有用？</h4>
-<p>A: 根據stackoverflow上<a href="http://stackoverflow.com/questions/21212246/cordova-ignores-screen-orientation-lock" target="_blank" rel="external">這篇回答</a>的說法，這是個bug，不過他應該已經被fix掉了才對，那為什麼還會有問題呢？去檢查AndroidManifest.xml中的設定後，發現<code>android:screenOrientation</code>是<code>userPortrait</code>，兩者間的差別在於：</p>
-<blockquote>
-<p>If the user has locked sensor-based rotation, this behaves the same as portrait, otherwise it behaves the same as sensorPortrait.</p>
-</blockquote>
-<p>可是不對啊，我明明是下portrait，為什麼會變成userPortait？打開cordova裡面一隻叫做<code>android_parser.js</code>的檔案，會發現下面這段：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Set the orientation in the AndroidManifest</span></div><div class="line"><span class="keyword">var</span> orientationPref = <span class="keyword">this</span>.findOrientationPreference(config);</div><div class="line"><span class="keyword">if</span> (orientationPref) {</div><div class="line">	<span class="keyword">var</span> act = manifest.getroot().find(<span class="string">'./application/activity'</span>);</div><div class="line">	<span class="keyword">switch</span> (orientationPref) {</div><div class="line">		<span class="keyword">case</span> <span class="string">'default'</span>:</div><div class="line">			<span class="keyword">delete</span> act.attrib[<span class="string">"android:screenOrientation"</span>];</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">'portrait'</span>:</div><div class="line">			act.attrib[<span class="string">"android:screenOrientation"</span>] = <span class="string">'userPortrait'</span>;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">'landscape'</span>:</div><div class="line">			act.attrib[<span class="string">"android:screenOrientation"</span>] = <span class="string">'userLandscape'</span>;</div><div class="line">		}</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>簡單來說，就是cordova在build android時會把”portrait”轉成”userPortait”，”landspace”轉成”userLandspace”，不知道該說她貼心還是雞婆…<br>解法就是把上面的code稍微改一下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Set the orientation in the AndroidManifest</span></div><div class="line"><span class="keyword">var</span> orientationPref = <span class="keyword">this</span>.findOrientationPreference(config);</div><div class="line"><span class="keyword">if</span> (orientationPref) {</div><div class="line">	<span class="keyword">var</span> act = manifest.getroot().find(<span class="string">'./application/activity'</span>);</div><div class="line">	<span class="keyword">switch</span> (orientationPref) {</div><div class="line">		<span class="keyword">case</span> <span class="string">'default'</span>:</div><div class="line">			<span class="keyword">delete</span> act.attrib[<span class="string">"android:screenOrientation"</span>];</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">'portrait'</span>:</div><div class="line">			<span class="comment">// act.attrib["android:screenOrientation"] = 'userPortrait';</span></div><div class="line">			act.attrib[<span class="string">"android:screenOrientation"</span>] = <span class="string">'portrait'</span>;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">'landscape'</span>:</div><div class="line">			<span class="comment">// act.attrib["android:screenOrientation"] = 'userLandscape';</span></div><div class="line">			act.attrib[<span class="string">"android:screenOrientation"</span>] = <span class="string">'landscape'</span>;</div><div class="line">		}</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h4 id="Q:_在config-xml中設置中文的name會不會有問題？">Q: 在config.xml中設置中文的name會不會有問題？</h4>
-<p>A: 老實說，這問題很微妙，因為我在config.xml中設定app name為中文時，build android會發生問題，可是華文圈好像沒有相關災情傳出…如果跟我一樣碰到的話，就在發佈前去<code>platforms/android/res/values/string.xml</code>裡面改吧。</p>
-<h2 id="jQuery_Mobile">jQuery Mobile</h2>
-<hr>
-<h4 id="Q:_changepage的時候會抖一下，為什麼？">Q: changepage的時候會抖一下，為什麼？</h4>
-<p>A: 就跟你上廁所的時候會抖一下是一樣的道理（誤<br>這是很多人都會碰到的問題，不知道為什麼在transform的時候page的高會多出1px，結束後套上正常的min-height就產生了那一點點的抖動。解法有很多種，<a href="http://outof.me/fixing-flickers-jumps-of-jquery-mobile-transitions-in-phonegap-apps/" target="_blank" rel="external">這個</a>試過可以，不過會產生另一個問題就是ios會不能捲動page content，需要<a href="https://github.com/cubiq/iscroll" target="_blank" rel="external">iscroll.js</a>；後來發現johnbender<a href="https://github.com/jquery/jquery-mobile/issues/2846" target="_blank" rel="external">有解釋這個問題</a>，原因是jQuery mobile會預先向下scroll 1px來隱藏nav bar，解決方法就是在jQuery mobile引入後，還沒初始化頁面前設定$.mobile.defaultHomeScroll=0。</p>
-<blockquote>
-<p>寶傑，你知道嗎，這1px搞了我兩天…</p>
-</blockquote>
-<h4 id="Q:_changepage的時候會閃一下，為什麼？">Q: changepage的時候會閃一下，為什麼？</h4>
-<p>A: 首先，先確認不是你的眼睛在閃（無誤），畢竟幹這行可說是靠眼睛吃飯的，要好好保養啊…<br>如果眼睛沒問題的話，那就在page style上加個<code>backface-visibility: hidden</code>就可以了。</p>
-<h2 id="Backbone">Backbone</h2>
-<hr>
-<h4 id="Q:_touch_event會被觸發兩次，或是某些頁面的even時好時壞？">Q: touch event會被觸發兩次，或是某些頁面的even時好時壞？</h4>
-<p>A: 檢查有沒有發生”ghost view”的狀況，也就是某個（或某些）dom被綁了一個以上的view，這種事情常發生在動態新增view的時候。</p>
-
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2014/03/26/note-chrome-workspace-with-sass-and-compass/">[筆記] Chrome workspace with Sass and Compass</a></h1>
-  
-
-    <time datetime="2014-03-26T01:54:00.000Z">
-  <span class="day">26</span><span class="month">3月</span>
-</time>
-  </header>
-  <div class="entry-content">
-    
-      
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-  </div>
-  
-</article>
-  
-
-  <nav id="pagenavi">
-  
-  
-    <a href="/archives/page/2/" class="alignright next">下一頁</a>
-  
   <div class="clearfix"></div>
 </nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">彙整</h2>
+
+
+  <div class="archive">
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2015-03-31T13:51:27.115Z"><a href="/2015/03/31/hello-world/">2015-03-31</a></time>
+            
+              <h1 class="title"><a href="/2015/03/31/hello-world/">Hello World</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2015-03-20T15:29:12.000Z"><a href="/2015/03/20/2015-03-20-learning-es6-with-babel-const/">2015-03-20</a></time>
+            
+              <h1 class="title"><a href="/2015/03/20/2015-03-20-learning-es6-with-babel-const/">learning es6 with babel - const</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2015-03-20T15:29:00.000Z"><a href="/2015/03/20/2015-03-20-learning-es6-with-babel-let/">2015-03-20</a></time>
+            
+              <h1 class="title"><a href="/2015/03/20/2015-03-20-learning-es6-with-babel-let/">learning es6 with babel - let</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2015-03-15T14:02:01.000Z"><a href="/2015/03/15/2015-03-15-learn-es6-with-babel/">2015-03-15</a></time>
+            
+              <h1 class="title"><a href="/2015/03/15/2015-03-15-learn-es6-with-babel/">Learn es6 with babel - Arrows</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2015-02-26T15:32:23.000Z"><a href="/2015/02/26/2015-02-26-move-from-logdown-to-hexo/">2015-02-26</a></time>
+            
+              <h1 class="title"><a href="/2015/02/26/2015-02-26-move-from-logdown-to-hexo/">從logdown到hexo</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-05-28T19:43:00.000Z"><a href="/2014/05/29/2014-05-29-experience-debug-cordova-app-with-android-44-and-chrome/">2014-05-29</a></time>
+            
+              <h1 class="title"><a href="/2014/05/29/2014-05-29-experience-debug-cordova-app-with-android-44-and-chrome/">[心得] Debug Cordova app with Android 4.4 and Chrome</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-05-25T17:29:00.000Z"><a href="/2014/05/26/2014-05-26-note-cordova-trouble-shooting/">2014-05-26</a></time>
+            
+              <h1 class="title"><a href="/2014/05/26/2014-05-26-note-cordova-trouble-shooting/">[筆記] Cordova trouble shooting</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-05-16T21:52:00.000Z"><a href="/2014/05/17/2014-05-17-note-cordova-34-with-wp8-minesweeper-records/">2014-05-17</a></time>
+            
+              <h1 class="title"><a href="/2014/05/17/2014-05-17-note-cordova-34-with-wp8-minesweeper-records/">[筆記] Cordova 3.4 with WP8 踩地雷紀錄</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-05-11T22:53:00.000Z"><a href="/2014/05/12/2014-05-12-teaching-yql-for-ten-minutes-easy/">2014-05-12</a></time>
+            
+              <h1 class="title"><a href="/2014/05/12/2014-05-12-teaching-yql-for-ten-minutes-easy/">[教學] YQL十分鐘簡單上手</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2014-04-29T22:05:00.000Z"><a href="/2014/04/30/2014-04-30-note-cordova-with-jquery-mobile/">2014-04-30</a></time>
+            
+              <h1 class="title"><a href="/2014/04/30/2014-04-30-note-cordova-with-jquery-mobile/">[筆記] Cordova with jQuery Mobile &amp; Backbone的一些小問題</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+  </div>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:apolkingg8.github.io">
+  </form>
 </div>
-  <footer id="footer" class="inner"><div class="social alignright">
+
   
+<div class="widget tag">
+  <h3 class="title">分類</h3>
+  <ul class="entry">
   
+    <li><a href="/categories/Net/">.Net</a><small>1</small></li>
   
+    <li><a href="/categories/github/Octopress/">Octopress</a><small>1</small></li>
   
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+    <li><a href="/categories/閒聊/微軟/RWD/">RWD</a><small>1</small></li>
+  
+    <li><a href="/categories/github/">github</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/categories/logdown/">logdown</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/微軟/">微軟</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/Net/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/javascript/筆記/">筆記</a><small>1</small></li>
+  
+    <li><a href="/categories/閒聊/">閒聊</a><small>1</small></li>
+  
+    <li><a href="/categories/logdown/閒聊/">閒聊</a><small>1</small></li>
+  
+  </ul>
 </div>
-<p>
+
+
   
-  &copy; 2015 EijiHsu
+<div class="widget tag">
+  <h3 class="title">標籤</h3>
+  <ul class="entry">
   
-</p>
+    <li><a href="/tags/learning-es6/">learning, es6</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 John Doe
+  
+</div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
@@ -606,12 +263,5 @@
 })(jQuery);
 </script>
 
-
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
-</div>
-<script src="/js/phasebeam.js"></script>
 </body>
 </html>
