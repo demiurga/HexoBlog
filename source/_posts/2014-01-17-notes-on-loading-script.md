@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] 關於載入Script'
+title: '關於載入Script'
 date: 2014-01-17 09:02
 comments: true
-categories: 
+tags: [javascript]
 ---
 最近在看[Javascript Patterns](http://www.tenlong.com.tw/items/9862764198?item_id=427729)這本書，剛好這陣子有碰到比較大的js data，就把書中一些關於Script讀取策略的部分整理一下。
 

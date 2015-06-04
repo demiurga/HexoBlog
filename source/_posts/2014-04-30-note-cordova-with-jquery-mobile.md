@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] Cordova with jQuery Mobile & Backbone的一些小問題'
+title: 'Cordova with jQuery Mobile & Backbone的一些小問題'
 date: 2014-04-30 06:05
 comments: true
-categories: 
+tags: [Cordova, jQuery Mobile, Backbone, javascript]
 ---
 小弟這幾個月做前端的心得是：有些東西看起來很美好，睡到床上後才知道...（喂
 下面筆記一下使用jQuery Mobile 1.4.2 + Backbone + Cordova 3.4開發中遇到的一些“小”問題

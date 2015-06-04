@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[產出] 高雄捷運進站人數變化圖'
+title: '高雄捷運進站人數變化圖'
 date: 2014-01-15 14:37
 comments: true
-categories: 
+tags: [Works] 
 ---
 Demo: [http://apolkingg8.github.io/DemoPages/KRT_logMap/demo.html](http://apolkingg8.github.io/DemoPages/KRT_logMap/demo.html)
 

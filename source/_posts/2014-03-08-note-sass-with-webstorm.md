@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] WebStorm中Sass File Watcher的一顆小地雷'
+title: 'WebStorm中Sass File Watcher的一顆小地雷'
 date: 2014-03-08 12:37
 comments: true
-categories: 
+tags: [WebStorm, SASS, CSS]
 ---
 當我們在寫Sass的時候，把它拆成各個區塊方便管理是一件很正常的事，像這樣：
 ```

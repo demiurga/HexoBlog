@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: It just works!
+subtitle: seams easy, right?
 description:
-author: John Doe
-language:
+author: Apolkingg8
+language: zh-TW
 timezone:
 
 # URL
@@ -43,7 +43,7 @@ highlight:
   tab_replace:
 
 # Category & Tag
-default_category: uncategorized
+default_category: [none]
 category_map:
 tag_map:
 

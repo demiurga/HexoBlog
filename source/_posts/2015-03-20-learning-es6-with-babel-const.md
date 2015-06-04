@@ -1,6 +1,6 @@
 title: learning es6 with babel - const
 date: 2015-03-20 23:29:12
-tags:
+tags: [ES6, javascript, Babel]
 ---
 
 `const`用來聲明常量，也就是該變數的值在聲明後不會再改變，跟`let`一樣有block scope，沒有

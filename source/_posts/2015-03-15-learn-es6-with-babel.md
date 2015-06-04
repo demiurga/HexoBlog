@@ -1,6 +1,6 @@
 title: Learn es6 with babel - Arrows
 date: 2015-03-15 22:02:01
-tags: learning, es6
+tags: [ES6, javascript, Babel]
 ---
 在ES6中，可以使用`=>`來定義function。這是一個很類似coffeescript的語法糖（事實上es6有很大一部分是語法糖，個人很喜歡這種做法，與其去改變語言的本質，不如讓語言順著原本的脈絡慢慢茁壯）
 ```js

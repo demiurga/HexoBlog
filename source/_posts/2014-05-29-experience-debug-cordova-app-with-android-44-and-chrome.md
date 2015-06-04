@@ -3,7 +3,7 @@ layout: post
 title: '[心得] Debug Cordova app with Android 4.4 and Chrome'
 date: 2014-05-29 03:43
 comments: true
-categories: 
+tags: [Cordova, Android, Chrome]
 ---
 在Android 4.4，有新的方式可以用Chrome debug Android 上面的 WebView
 方法超簡單（以下以cordova app當範例）：

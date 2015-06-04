@@ -1,6 +1,6 @@
 title: 從logdown到hexo
 date: 2015-02-26 23:32:23
-tags: 
+tags: [閒聊]
 ---
 因為很多很多的因素，這半年有點低潮
 logdown沒寫半篇文章，社群聚會完全沒參加，github也是一片荒涼...

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[心得] jQuery Widget Factory極簡教學'
+title: 'jQuery Widget Factory極簡教學'
 date: 2014-01-11 08:45
 comments: true
-categories: 
+tags: [jQuery]
 ---
 
 

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[閒聊] 從Blogger搬到Logdown'
+title: '從Blogger搬到Logdown'
 date: 2013-12-24 04:46
 comments: true
-categories: [logdown, 閒聊]
+tags: [閒聊]
 ---
 
 偶然在社群看到這個東西，試用過後有種 **"寶貝~我終於找到你了"** 的感覺XD

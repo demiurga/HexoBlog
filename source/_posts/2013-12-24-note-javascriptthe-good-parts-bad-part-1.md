@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] Javascript : The Good Parts - 糟糕的部分'
+title: 'Javascript : The Good Parts - 糟糕的部分'
 date: 2013-12-24 08:44
 comments: true
-categories: [javascript, 筆記]
+tags: [javascript]
 ---
 ##全域變數
 javascript最糟糕的一項特性，就是他對於全域變數的依賴。有三種可以宣告全域變數的方式：

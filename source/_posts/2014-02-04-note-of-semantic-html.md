@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] HTML5 Semantic Elements'
+title: 'HTML5 Semantic Elements'
 date: 2014-02-04 07:59
 comments: true
-categories: 
+tags: [HTML5] 
 ---
 <img src="http://html5doctor.com/downloads/h5d-sectioning-flowchart.png"/>
 

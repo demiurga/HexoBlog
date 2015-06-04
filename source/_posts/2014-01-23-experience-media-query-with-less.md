@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] Media query with LESS'
+title: 'Media query with LESS'
 date: 2014-01-23 07:08
 comments: true
-categories: 
+tags: [CSS, LESS] 
 ---
 在LESS中，對於Media Query有些更方便的寫法，下面舉一些例子：
 

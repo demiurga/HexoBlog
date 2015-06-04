@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] .NET NPOI'
+title: '.NET NPOI'
 date: 2014-01-01 15:08
 comments: true
-categories: [.Net, 筆記]
+tags: [.NET]
 ---
 每次要用都忘記用法，未老先衰阿...
 

@@ -1,3 +1,7 @@
+title: learning es6 with babel - Class
+tags:
+---
+
 `template string`是一顆很實用的語法糖(應該說，這東西早該出現了...Orz)
 ，解決了以往用`"`跟`'`拼湊複雜字串的麻煩。它使用` ` `
 來標記

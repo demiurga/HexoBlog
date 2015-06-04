@@ -1,6 +1,6 @@
 title: learning es6 with babel - let
 date: 2015-03-20 23:29:00
-tags:
+tags: [ES6, javascript, Babel]
 ---
 
 `let`是另一種宣告變數的方式，他有幾個特點：有block scope，沒有hoisting，不能重複宣告

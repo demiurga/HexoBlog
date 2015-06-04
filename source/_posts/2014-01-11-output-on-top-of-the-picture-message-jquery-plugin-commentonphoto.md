@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[產出] 在圖片上留言的jQuery plugin - CommentOnPhoto'
+title: '在圖片上留言的jQuery plugin - CommentOnPhoto'
 date: 2014-01-11 07:36
 comments: true
-categories: 
+tags: [Works] 
 ---
 GitPage: [https://github.com/apolkingg8/CommentOnPhoto](https://github.com/apolkingg8/CommentOnPhoto)
 DemoPage: [http://apolkingg8.github.io/DemoPages/COP/demo.html](http://apolkingg8.github.io/DemoPages/COP/demo.html)

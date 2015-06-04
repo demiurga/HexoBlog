@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] Cordova 3.4 with WP8 踩地雷紀錄'
+title: 'Cordova 3.4 with WP8 踩地雷紀錄'
 date: 2014-05-17 05:52
 comments: true
-categories: 
+tags: [Cordova, Windows Phone]
 ---
 這整個過程讓我想到WOW裡的一個成就： **［這真是段漫長又奇妙的旅程］**
 不過漫長奇妙之外還多了很多的痛苦就是了...ORZ

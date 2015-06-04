@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] Javascript Image Beacon'
+title: 'Javascript Image Beacon'
 date: 2014-02-03 10:22
 comments: true
-categories: 
+tags: [javascript] 
 ---
 在javascript中，要對Server發出GET請求，除了慣用的ajax之外還有另外一個方法，叫做Image Beacon。方法如下：
 ```javascript

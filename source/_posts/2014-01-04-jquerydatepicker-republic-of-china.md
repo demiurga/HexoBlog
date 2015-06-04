@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[產出] jQueryDatePicker民國版'
+title: 'jQueryDatePicker民國版'
 date: 2014-01-04 10:21
 comments: true
-categories: 
+tags: [Works, jQuery] 
 ---
 GitPage:[https://github.com/apolkingg8/JQueryDatePickerTW](https://github.com/apolkingg8/JQueryDatePickerTW)
 

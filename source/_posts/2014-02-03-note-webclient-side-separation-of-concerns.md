@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[閒聊] WebClient端的關注點分離'
+title: 'WebClient端的關注點分離'
 date: 2014-02-03 10:55
 comments: true
-categories: 
+tags: [javascript, HTML5, CSS]
 ---
 內容出自[Javascript:patterns](http://shop.oreilly.com/product/9780596806767.do)第八章
 

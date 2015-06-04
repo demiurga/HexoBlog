@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] Javascript : The Good Parts - 不良的部分'
+title: 'Javascript : The Good Parts - 不良的部分'
 date: 2013-12-31 09:23
 comments: true
-categories: [javascript, 筆記]
+tags: [javascript]
 ---
 這章列出javascript一些可以輕鬆避用的問題功能。
 ##==

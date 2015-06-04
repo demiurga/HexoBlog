@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] Cordova trouble shooting'
+title: 'Cordova trouble shooting'
 date: 2014-05-26 01:29
 comments: true
-categories: 
+tags: [Cordova]
 ---
 ##開發環境：
 Editor: WebStorm 7 with Cordova CLI

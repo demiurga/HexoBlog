@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] CSS Media Query'
+title: 'CSS Media Query'
 date: 2014-01-23 05:29
 comments: true
-categories: 
+tag: [CSS]
 ---
 最近在做RWD的練習，赫然發現自己的CSS有點弱阿...長久以來都習慣把一些東西交給javascript處理，是時候該打好CSS的根底了。（以上題外話）下面大概筆記一下關於Media Query的部分。
 

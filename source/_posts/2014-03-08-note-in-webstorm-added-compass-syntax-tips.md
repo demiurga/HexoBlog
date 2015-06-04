@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[筆記] 在WebStorm中新增compass的語法提示'
+title: '在WebStorm中新增compass的語法提示'
 date: 2014-03-08 14:31
 comments: true
-categories: 
+tags: [WebStorm, SASS, CSS] 
 ---
 在WebStorm中，compass是沒有內建代碼提示的，而且所有的compass mixin都會被標示為undefined mixin（雖然不影響compiler），連`@import compass`底下都會爬一條紅蚯蚓，跟你說他找不到compass.sass這個檔案。目前看到最好的解法是手動新增符號連結。
 
