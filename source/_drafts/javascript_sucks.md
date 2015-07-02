@@ -1,0 +1,3 @@
+title: javascript sucks
+tags:
+---
