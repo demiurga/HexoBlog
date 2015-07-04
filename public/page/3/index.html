@@ -49,6 +49,57 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-01-17T01:02:00.000Z"><a href="/2014/01/17/2014-01-17-notes-on-loading-script/">2014-01-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/01/17/2014-01-17-notes-on-loading-script/">關於載入Script</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>最近在看<a href="http://www.tenlong.com.tw/items/9862764198?item_id=427729">Javascript Patterns</a>這本書，剛好這陣子有碰到比較大的js data，就把書中一些關於Script讀取策略的部分整理一下。</p>
+<h2 id="Script_Tag的屬性">Script Tag的屬性</h2><hr>
+<p><code>language</code><br>這個屬性有各種不同大小寫的格式，像是：<code>JavaScript</code>, <code>javascript</code>, <code>Javascript</code>，有時候還附帶版本號。但其實根本就不應該用這個屬性，因為預設語言就是JavaScript，版本號也運作得不好。</p>
+<blockquote>
+<p>註：W3C已經不推薦使用這個屬性</p>
+</blockquote>
+<p><code>type</code><br>HTML4跟XHAML1標準會驗證這個屬性為必要，但其實不應該如此，因為預設就是JavaScript。HTML5已經將這個屬性改成非必要。</p>
+<p><code>defer</code><br>這段指定的Script會在頁面Render結束之後才運作，HTML5有更方便的<code>async</code>屬性。</p>
+<blockquote>
+<p>async跟defer的區別在於前者是在ParseDOM時載入Script並在載入完成後執行，後者則是在頁面載入結束後載入Script，並在載入完成後執行。一個小技巧是同時放上<code>async</code>跟<code>defer</code>，支援async的瀏覽器會忽略defer，不支援的則會使用defer。<br>關於<code>defer</code>這個屬性，其實各瀏覽器實作的方式不一樣，許多現代瀏覽器，例如Chrome，預設就是在頁面Render結束後才載入<code>&lt;head&gt;</code>中有<code>src</code>的<code>&lt;scripe&gt;</code>。<a href="http://mao.li/javascript/javascript-defer/">這篇文章</a>有作一些測試。</p>
+</blockquote>
+<h2 id="放置Script_Tag的位置">放置Script Tag的位置</h2><hr>
+<p><code>&lt;script&gt;</code>標籤會阻擋在他之後的事件，包括頁面render或下載，所以放置<code>&lt;Script&gt;</code>最好的位置是在<code>&lt;/body&gt;</code>之前，這樣可以防止頁面載入被Scrtpt標籤阻擋而拖延。最差的方式則是在<code>&lt;head&gt;</code>中引入多個獨立的檔案，會佔去server許多不必要的連線數。</p>
+<blockquote>
+<p>個人經驗，有沒有pack成單一檔案對伺服器負載能力真的差蠻多的</p>
+</blockquote>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/01/17/2014-01-17-notes-on-loading-script/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-01-15T06:37:00.000Z"><a href="/2014/01/15/2014-01-15--number-of-kaohsiung-mrt-station/">2014-01-15</a></time>
       
       
@@ -389,39 +440,6 @@
     <div class="entry">
       
         <p>此篇文章位於<a href="http://apolkingg8.blogspot.com/" target="_blank" rel="external">舊的Blogger</a>，因為轉移過程中有格式缺漏，請<a href="http://apolkingg8.blogspot.com/2013/12/javascript-good-parts-ch6.html" target="_blank" rel="external">點此</a>觀看原文．</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-12-18T08:48:00.000Z"><a href="/2013/12/18/2013-12-18-javascript-good-parts-ch5-19/">2013-12-18</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/12/18/2013-12-18-javascript-good-parts-ch5-19/">Javascript : The Good Parts - Ch.5 繼承 (二)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>此篇文章位於<a href="http://apolkingg8.blogspot.com/" target="_blank" rel="external">舊的Blogger</a>，因為轉移過程中有格式缺漏，請<a href="http://apolkingg8.blogspot.com/2013/12/javascript-good-parts-ch5_19.html" target="_blank" rel="external">點此</a>觀看原文．</p>
 
       
     </div>
