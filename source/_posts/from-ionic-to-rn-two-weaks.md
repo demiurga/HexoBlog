@@ -1,6 +1,8 @@
-title: React Native 兩週心得
+title: "React Native 兩週心得"
+date: 2015-06-05 23:26:01
 tags:
 ---
+
 
 最近在port一個大概半年的Ionic專案到React-Native上，分享一下到目前為止的心得。
 
